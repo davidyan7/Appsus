@@ -3,11 +3,11 @@ import { storageService } from '../../../services/async-storage-service.js';
 
 
 var mailsJson = [
-    { id: 101, subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: 1551133930594 },
-    { id: 102, subject: 'aaaaa', body: 'aaaaa!', isRead: false, sentAt: 1551133930594 },
-    { id: 103, subject: 'bbbbb', body: 'bbbbb!', isRead: false, sentAt: 1552133930294 },
-    { id: 104, subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: 1551153930594 },
-    { id: 105, subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: 1551134930594 },
+    { to: 'sahar', id: 101, subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: 1551133930594 },
+    { to: 'liran', subject: 'aaaaa', body: 'aaaaa!', isRead: false, sentAt: 1551133930594 },
+    { to: 'adi', subject: 'bbbbb', body: 'bbbbb!', isRead: false, sentAt: 1552133930294 },
+    { to: 'adam', subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: 1551153930594 },
+    { to: 'arik', subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: 1551134930594 },
 ]
 const MAIL_KEY = 'mails';
 const gMails = _createMails();
@@ -16,6 +16,7 @@ export const mailService = {
     query,
     remove,
     getById,
+    addMail,
     // saveReview,
     // removeReview,
     // searchTxt,
@@ -49,6 +50,11 @@ function getById(mailId) {
     return storageService.get(MAIL_KEY, mailId);
 }
 
+function addMail(mail) {
+    return storageService.post(MAIL_KEY, mail)
+
+}
+
 // function getNextmailId(mailId) {
 //     return query()
 //         .then(books => {
@@ -77,11 +83,7 @@ function getById(mailId) {
 
 // }
 
-// function addBook(book) {
-//     const currBook = fixGoogleBook(book)
-//     storageService.post(MAIL_KEY, currBook)
 
-// }
 
 // function searchTxt(txt) {
 //     return axiosService.ask(txt)

@@ -9,7 +9,7 @@ export default {
     template: `
         <section class="mail-app">
             <mail-list  :mails="mailsToShow" @remove="removeMail" />
-            <mail-compose></mail-compose>
+            <mail-compose @saveMail="saveMail"></mail-compose>
         </section>
     `,
     data() {
@@ -26,6 +26,12 @@ export default {
                 .then(mails => this.mails = mails);
         },
 
+        saveMail(mail) {
+            mailService.addMail(mail)
+                .then(() => {
+                    this.loadMails();
+                })
+        },
 
         removeMail(mailId) {
             console.log(mailId);

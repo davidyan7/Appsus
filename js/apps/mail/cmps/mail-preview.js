@@ -3,11 +3,10 @@ export default {
     template: `
     <section class="mail-preview">
         <p>
-            {{mail.subject}}
-            {{mail.body}}
-            {{mail.isRead}}
-            {{mail.sentAt}}
-            {{mail.id}}
+            <span>{{mail.to}}</span>
+            <span>{{mail.subject}}</span>
+            <span>{{mail.body}}</span>
+            <span>{{showTime}}</span>
             <button @click="remove(mail.id)">X</button>
         </p>
     </section>
@@ -16,6 +15,12 @@ export default {
         return {
 
         }
+    },
+    computed: {
+        showTime() {
+            return this.mail.sentAt
+        }
+
     },
     methods: {
         remove(mailId) {
