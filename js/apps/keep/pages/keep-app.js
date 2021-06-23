@@ -20,7 +20,7 @@ export default {
             <router-link to="/mail" >Mail</router-link> |
             <router-link to="/keep" >Keep</router-link>  -->
         </nav>
-        <keep-edit v-if="clickedNote" :note="clickedNote" @done="editDone"></keep-edit>
+        <keep-edit v-if="clickedNote" :note="clickedNote" @done="editDone" @deleteNote="deleteNote"></keep-edit>
     </section>
     `,
     created() {
@@ -28,34 +28,40 @@ export default {
     },
     data() {
         return {
-            notes:null,
+            notes: null,
             clickedNote: null
         }
     },
     methods: {
         loadNotes() {
             console.log('loading notes...');
-             keepService.query()
-            .then(notes => this.notes = notes)
+            keepService.query()
+                .then(notes => this.notes = notes)
         },
-        addNote(note){
+        addNote(note) {
             console.log('adding note...');
             // console.log(note);
             keepService.addNewNote(note)
-            .then(()=>this.loadNotes())
+                .then(() => this.loadNotes())
         },
         editNote(note) {
-                keepService.updateNote(note)
-                .then(()=>this.loadNotes())
+            keepService.updateNote(note)
+                .then(() => this.loadNotes())
         },
         noteClicked(id) {
-            console.log('getting note...',id);
+            console.log('getting note...', id);
             keepService.getNoteById(id)
-            .then(note => this.clickedNote = note)
+                .then(note => this.clickedNote = note)
         },
         editDone(note) {
             this.clickedNote = null
             this.editNote(note)
+        },
+        deleteNote(note) {
+            console.log('deleting...');
+            this.clickedNote = null
+            keepService.removeNote(note.id)
+            .then(() => this.loadNotes())
         }
     }
 };

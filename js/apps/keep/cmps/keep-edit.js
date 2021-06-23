@@ -7,7 +7,9 @@ export default {
     <section class="keep-edit">
         <button class="edit-exit-btn" @click="close">X</button>
         <textarea name="" id=""  v-model="note.info.txt" ></textarea>
-    </section>
+        <button class="edit-remove-btn" @click="deleteNote">delete</button>
+        <!-- <button class="edit-remove-btn" @click="delete">delete</button> -->
+    </section >
     `,
     created() {
         // this.currNote 
@@ -20,11 +22,9 @@ export default {
     methods: {
         close() {
             this.$emit('done', this.note)
+        },
+        deleteNote() {
+            this.$emit('deleteNote', this.note)
         }
     },
-    computed: {
-        // passCurrNote() {
-        //     return this.note
-        // }
-    }
 };

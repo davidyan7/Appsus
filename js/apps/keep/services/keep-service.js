@@ -6,6 +6,7 @@ export const keepService = {
     addNewNote,
     getNoteById,
     updateNote,
+    removeNote
 }
 
 const KEEP_KEY = 'notes'
@@ -86,4 +87,8 @@ function getNoteById(id) {
 
 function updateNote(book) {
     return storageService.put(KEEP_KEY, book)
+}
+
+function removeNote(id) {
+    return storageService.remove(KEEP_KEY, id)
 }

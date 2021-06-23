@@ -32,6 +32,13 @@
     cursor: pointer;
 }
 
+.keep-edit .edit-remove-btn {
+    position:absolute;
+    bottom: 3px;
+    right:3px;
+    cursor: pointer;
+    /* z-index: 2; */
+}
 
 
 /* keep-add */
