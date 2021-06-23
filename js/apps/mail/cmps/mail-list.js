@@ -8,8 +8,9 @@ export default {
 
         </div>
         <ul>
+            <li>Unread:{{unReadMails}} </li>
             <li v-for="mail in mails" :key="mail.id" class="mail-preview-container">    
-                <mail-preview :mail="mail" @remove="removeMail"></mail-preview>
+                <mail-preview :mail="mail" @readChosen="readChosen" @readMail="readMail" @remove="removeMail"></mail-preview>
                 
             </li>
         </ul>
@@ -17,13 +18,29 @@ export default {
     `,
     data() {
         return {
-
+            unread: null
+        }
+    },
+    computed: {
+        unReadMails() {
+            var sumUnread = 0
+            this.mails.forEach(mail => {
+                if (!mail.isRead) sumUnread++
+            })
+            return sumUnread
         }
     },
     methods: {
         removeMail(mailId) {
             this.$emit('remove', mailId);
         },
+        readMail(mail) {
+            this.$emit('readMail', mail);
+        },
+        readChosen(mail) {
+            this.$emit('readChosen', mail);
+        },
+
     },
     created() {
 

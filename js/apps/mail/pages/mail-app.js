@@ -1,5 +1,7 @@
 import { mailService } from '../services/mail-service.js';
 import mailList from '../cmps/mail-list.js'
+import mailSearch from '../cmps/mail-search.js'
+import mailFilter from '../cmps/mail-filter.js'
 import mailCompose from '../cmps/mail-compose.js'
 
 
@@ -8,13 +10,17 @@ import mailCompose from '../cmps/mail-compose.js'
 export default {
     template: `
         <section class="mail-app">
-            <mail-list  :mails="mailsToShow" @remove="removeMail" />
-            <mail-compose @saveMail="saveMail"></mail-compose>
+        <mail-search @search="setSearch"></mail-search>
+        <mail-filter></mail-filter>
+            <mail-list v-if="mails" @readChosen="readChosen" @readMail="readMail" :mails="mailsToShow" @remove="removeMail" />
+            <mail-compose  @saveMail="saveMail"></mail-compose>
         </section>
     `,
     data() {
         return {
             mails: null,
+            searchBy: null,
+            filterBy: null
         };
     },
     created() {
@@ -45,18 +51,37 @@ export default {
                 })
 
         },
+        readMail(mail) {
+            mailService.saveMail(mail)
+        },
+        readChosen(mail) {
+            mailService.readChosen(mail)
+        },
+        setSearch(searchBy) {
+            this.searchBy = searchBy;
+        }
 
     },
     computed: {
         mailsToShow() {
-            return this.mails
+            if (!this.searchBy && !this.filterBy) return this.mails
+            const searchStr = this.searchBy.toLowerCase();
+            const booksToShow = this.mails.filter(mail => {
+                return (
+                    mail.to.toLowerCase().includes(searchStr) ||
+                    mail.body.toLowerCase().includes(searchStr) ||
+                    mail.subject.toLowerCase().includes(searchStr)
+                )
+            })
+            return booksToShow
         }
-
 
     },
     components: {
         mailService,
         mailList,
-        mailCompose
+        mailCompose,
+        mailSearch,
+        mailFilter
     }
 };
