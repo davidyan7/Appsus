@@ -1,12 +1,52 @@
+import { mailservice } from '../services/mail-service.js';
+import mailList from '../cmps/mail-list.js'
+
+
+
+
 export default {
     template: `
-    <header class="mail-app">
-        <h1>Mail-App</h1>
-        <nav class="nav-bar">
-            <!-- <router-link to="/" active-class="active-link" exact>Home</router-link> |
-            <router-link to="/mail" >Mail</router-link> |
-            <router-link to="/keep" >Keep</router-link>  -->
-        </nav>
-    </header>
+        <section class="mail-app">
+            <book-list  :mails="mailsToShow" />
+        </section>
     `,
+    data() {
+        return {
+            mails: [],
+        };
+    },
+    created() {
+        this.loadMails();
+    },
+    methods: {
+        loadMails() {
+            mailService.query()
+                .then(mails => this.mails = mails);
+        },
+        mailsToShow() {
+            return this.mails
+        }
+
+        // removeBook(id) {
+        //     mailService.remove(id)
+        //         .then(() => {
+        //             const msg = {
+        //                 txt: 'Deleted successfuly',
+        //                 type: 'success'
+        //             };
+        //             eventBus.$emit('show-msg', msg);
+        //             this.loadmails();
+        //         })
+        // },
+
+    },
+    computed: {
+
+
+
+    },
+    components: {
+        mailservice,
+        mailList
+    }
 };
