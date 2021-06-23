@@ -79,7 +79,7 @@ export default {
                 })
                 return booksToShow
             }
-            if (this.filterBy === 'true') {
+            if (this.filterBy === 'read') {
                 console.log(this.filterBy);
                 const booksToShow = this.mails.filter(mail => mail.isRead)
                 return booksToShow

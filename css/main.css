@@ -1,2 +1,30 @@
 @import "./apps/keep/keep-main.css";
 @import "./apps/mail/mail-main.css";
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+
+/* HOME-PAGE */
+
+.home-page img {
+    width: 100%;
+    position: absolute;
+}
+
+
+/* APP-HEADER */
+
+.app-header {
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    font-size: 2em;
+    text-decoration: none;
+}
