@@ -1,14 +1,24 @@
 
 
 export default {
+    props:['note'],
     components: {
         // keepDetails
     },
     template: `
     <section class="keep-preview">
-        <h1>Keep-preview</h1>
-        <nav class="nav-bar">
-        </nav>
+        <div class="note-container">
+        <button class="pin-keep-preview">📌</button>
+            <!-- {{note.info.txt}} -->
+            <textarea v-model="note.info.txt" disabled></textarea>
+        </div>
     </section>
     `,
+    created() {
+    },
+data() {
+    return {
+    }
+}
+
 };

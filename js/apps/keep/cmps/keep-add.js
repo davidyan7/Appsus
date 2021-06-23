@@ -1,7 +1,8 @@
 export default {
     template: `
         <section class="keep-add">
-            <textarea id="textArea" name="text-area" rows="2" cols="50" placeholder="Take a note">  
+            <button class="pin-textarea">📌</button>
+            <textarea id="textArea" name="text-area" v-model="noteTxt.info.txt" rows="2" cols="50" placeholder="Take a note" @blur="logNote">  
                 
             </textarea>
         </section>
@@ -11,8 +12,30 @@ export default {
     },
     data() {
         return {
-
+            noteTxt:    {
+                type: "NoteTxt",
+                isPinned: false,
+                info: {
+                    title: null,
+                    txt: null
+                }
+            },
         }
     },
+    methods: {
+        logNote() {
+            if (!this.noteTxt.info.txt) return
+            this.$emit('logNote', this.noteTxt);
+            this.noteTxt = {
+                type: "NoteTxt",
+                isPinned: false,
+                info: {
+                    title: null,
+                    txt: null
+                }
+            }
+
+        }
+    }
     
 }
