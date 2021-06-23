@@ -1,5 +1,6 @@
-import { mailservice } from '../services/mail-service.js';
+import { mailService } from '../services/mail-service.js';
 import mailList from '../cmps/mail-list.js'
+import mailCompose from '../cmps/mail-compose.js'
 
 
 
@@ -7,12 +8,13 @@ import mailList from '../cmps/mail-list.js'
 export default {
     template: `
         <section class="mail-app">
-            <book-list  :mails="mailsToShow" />
+            <mail-list  :mails="mailsToShow" @remove="removeMail" />
+            <mail-compose></mail-compose>
         </section>
     `,
     data() {
         return {
-            mails: [],
+            mails: null,
         };
     },
     created() {
@@ -23,30 +25,32 @@ export default {
             mailService.query()
                 .then(mails => this.mails = mails);
         },
+
+
+        removeMail(mailId) {
+            console.log(mailId);
+            mailService.remove(mailId)
+                .then(() => {
+                    this.loadMails();
+                    console.log('remove');
+                })
+                .catch(() => {
+                    console.log('error');
+                })
+
+        },
+
+    },
+    computed: {
         mailsToShow() {
             return this.mails
         }
 
-        // removeBook(id) {
-        //     mailService.remove(id)
-        //         .then(() => {
-        //             const msg = {
-        //                 txt: 'Deleted successfuly',
-        //                 type: 'success'
-        //             };
-        //             eventBus.$emit('show-msg', msg);
-        //             this.loadmails();
-        //         })
-        // },
-
-    },
-    computed: {
-
-
 
     },
     components: {
-        mailservice,
-        mailList
+        mailService,
+        mailList,
+        mailCompose
     }
 };

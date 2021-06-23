@@ -1,29 +1,41 @@
-import { utilService } from './util-service.js';
-import { storageService } from './async-storage-service.js';
+import { utilService } from '../../../services/util-service.js';
+import { storageService } from '../../../services/async-storage-service.js';
 
 
 var mailsJson = [
-    { subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: 1551133930594 },
-    { subject: 'aaaaa', body: 'aaaaa!', isRead: false, sentAt: 1551133930594 },
-    { subject: 'bbbbb', body: 'bbbbb!', isRead: false, sentAt: 1552133930294 },
-    { subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: 1551153930594 },
-    { subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: 1551134930594 },
+    { id: 101, subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: 1551133930594 },
+    { id: 102, subject: 'aaaaa', body: 'aaaaa!', isRead: false, sentAt: 1551133930594 },
+    { id: 103, subject: 'bbbbb', body: 'bbbbb!', isRead: false, sentAt: 1552133930294 },
+    { id: 104, subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: 1551153930594 },
+    { id: 105, subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt: 1551134930594 },
 ]
 const MAIL_KEY = 'mails';
 const gMails = _createMails();
 
-export const bookService = {
+export const mailService = {
     query,
     remove,
     getById,
-    saveReview,
-    removeReview,
-    searchTxt,
-    addBook,
-    fixGoogleBook,
-    getNextmailId
+    // saveReview,
+    // removeReview,
+    // searchTxt,
+    // addBook,
+    // fixGoogleBook,
+    // getNextmailId
 
 };
+
+
+
+function _createMails() {
+    let mails = utilService.loadFromStorage(MAIL_KEY);
+    if (!mails || !mails.length) {
+        mails = mailsJson;
+
+        utilService.saveToStorage(MAIL_KEY, mails);
+    }
+    return mails;
+}
 
 function query() {
     return storageService.query(MAIL_KEY);
@@ -74,20 +86,3 @@ function getById(mailId) {
 // function searchTxt(txt) {
 //     return axiosService.ask(txt)
 // }
-
-
-
-
-
-
-
-
-function _createMails() {
-    let mails = utilService.loadFromStorage(MAIL_KEY);
-    if (!mails || !mails.length) {
-        mails = mailsJson;
-
-        utilService.saveToStorage(MAIL_KEY, mails);
-    }
-    return mails;
-}
