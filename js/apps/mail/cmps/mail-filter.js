@@ -2,7 +2,7 @@ export default {
     template: `
     <section class="book-filter">
         <select v-model="filterBy" @change="filter">
-            <option value=""></option>
+            <option value="">All</option>
             <option value="true">Read</option>
             <option value="false">Unread </option>
         </select>
