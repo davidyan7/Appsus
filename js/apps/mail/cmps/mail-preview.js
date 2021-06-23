@@ -6,7 +6,7 @@ export default {
             <span>{{mail.to}}</span>
             <span>{{mail.subject}}</span>
             <span>{{showTime}}</span>
-            <button @click="remove(mail.id)">X</button>
+            <button @click.stop="remove(mail.id)">X</button>
             <button @click.stop="readChosen(mail)">{{readChose}}</button>
         </p>
         <div v-if="isOpen"> 
