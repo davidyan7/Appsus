@@ -1,7 +1,8 @@
 export default {
     template: `
     <section class="book-filter">
-        <select v-model="filterBy" @change="log">
+        <select v-model="filterBy" @change="filter">
+            <option value=""></option>
             <option value="true">Read</option>
             <option value="false">Unread </option>
         </select>
@@ -13,8 +14,8 @@ export default {
         };
     },
     methods: {
-        log() {
-            console.log(this.filterBy);
+        filter() {
+            this.$emit('filter', this.filterBy);
         }
     }
 };

@@ -4,6 +4,7 @@ export default {
     <section class="mail-compose">
     <form @submit.prevent="save">
             <ul>
+                <h3>New Mail</h3>
                 <li> <input type="text" v-model="eMail.to" placeholder="To" ></li>
                 <li> <input type="text" v-model="eMail.cc" placeholder="Cc"></li>
                 <li> <input type="text" v-model="eMail.bcc" placeholder="Bcc"></li>

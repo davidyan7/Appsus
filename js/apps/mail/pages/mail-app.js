@@ -11,7 +11,7 @@ export default {
     template: `
         <section class="mail-app">
         <mail-search @search="setSearch"></mail-search>
-        <mail-filter></mail-filter>
+        <mail-filter @filter="setFilter"></mail-filter>
             <mail-list v-if="mails" @readChosen="readChosen" @readMail="readMail" :mails="mailsToShow" @remove="removeMail" />
             <mail-compose  @saveMail="saveMail"></mail-compose>
         </section>
@@ -59,23 +59,36 @@ export default {
         },
         setSearch(searchBy) {
             this.searchBy = searchBy;
+        },
+        setFilter(filterBy) {
+            this.filterBy = filterBy;
         }
 
     },
     computed: {
         mailsToShow() {
             if (!this.searchBy && !this.filterBy) return this.mails
-            const searchStr = this.searchBy.toLowerCase();
-            const booksToShow = this.mails.filter(mail => {
-                return (
-                    mail.to.toLowerCase().includes(searchStr) ||
-                    mail.body.toLowerCase().includes(searchStr) ||
-                    mail.subject.toLowerCase().includes(searchStr)
-                )
-            })
-            return booksToShow
-        }
+            if (this.searchBy) {
+                const searchStr = this.searchBy.toLowerCase();
+                const booksToShow = this.mails.filter(mail => {
+                    return (
+                        mail.to.toLowerCase().includes(searchStr) ||
+                        mail.body.toLowerCase().includes(searchStr) ||
+                        mail.subject.toLowerCase().includes(searchStr)
+                    )
+                })
+                return booksToShow
+            }
+            if (this.filterBy === 'true') {
+                console.log(this.filterBy);
+                const booksToShow = this.mails.filter(mail => mail.isRead)
+                return booksToShow
+            } else {
+                const booksToShow = this.mails.filter(mail => !mail.isRead)
+                return booksToShow
 
+            }
+        }
     },
     components: {
         mailService,

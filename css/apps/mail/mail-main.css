@@ -1,4 +1,6 @@
-.mail-app {}
+* {
+    list-style: none;
+}
 
 .marked {
     font-weight: bold;
