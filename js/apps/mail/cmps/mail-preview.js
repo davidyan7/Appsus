@@ -2,7 +2,7 @@ export default {
     props: ['mail'],
     template: `
     <section @click="readMail(mail)" class="mail-preview" >
-        <p :class="isRead" class="mail-li">
+        <p :class="isRead"  class="mail-li">
             <span>{{mail.to}}</span>
             <span>{{mail.subject}}</span>
             <span>{{showTime}}
@@ -19,7 +19,8 @@ export default {
             <h2>{{mail.subject}}</h2>
             <h3><{{mail.to}}@gmail.com></h3>
             <p>{{mail.body}}</p>
-            <button>Replay</button>
+            <button @click.stop="replayMail(mail)">Replay</button>
+            <button @click.stop="showDetails(mail)">details</button>
 
         </div>
     </section>
@@ -34,7 +35,6 @@ export default {
     computed: {
         readChose() {
             return (this.mail.isRead)
-
         },
 
         showTime() {
@@ -42,7 +42,6 @@ export default {
         },
         isRead() {
             return { marked: !this.mail.isRead }
-
         },
 
     },
@@ -53,6 +52,12 @@ export default {
         readMail(mail) {
             this.isOpen = !this.isOpen
             this.$emit('readMail', mail);
+        },
+        replayMail(mail) {
+            this.$emit('replayMail', mail);
+        },
+        showDetails(mail) {
+            this.$emit('showDetails', mail);
         },
         readChosen(mail) {
             this.isReaden = !this.isReaden

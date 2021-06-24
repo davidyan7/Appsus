@@ -3,6 +3,7 @@ import mailList from '../cmps/mail-list.js'
 import mailSearch from '../cmps/mail-search.js'
 import mailFilter from '../cmps/mail-filter.js'
 import mailCompose from '../cmps/mail-compose.js'
+import mailDetails from './/mail-details.js'
 
 
 
@@ -10,24 +11,25 @@ import mailCompose from '../cmps/mail-compose.js'
 export default {
     template: `
         <section class="mail-app-container">
-            <header class="mail-header">
+            <header class="mail-header ">
                 <h1>Appsus Mail</h1>
                 <mail-search @search="setSearch"></mail-search>
                 </header>
-                <div class="filter">
+                <div class="filter main-layout ">
                     <mail-filter @filter="setFilter"></mail-filter>
                 </div>
-            <div class="mail-app-body">
-                <nav class="mail-nav-bar">
+            <div class="mail-app-body main-layout ">
+                <nav  v-if="mails" class="mail-nav-bar">
                     <button @click="setCompose" class="compose-btn">+Compose</button>
-                    <button @click="setInbox" class="basic-btn">Inbox</button>
+                    <button @click="setInbox" class="basic-btn">Inbox     ({{unReadMails}})</button>
                     <button @click="filterstarred" class="basic-btn">Starred</button>
                     <button class="basic-btn">Sent Mail</button>
                 </nav>
                 <div v-if="isInbox">
-                    <mail-list v-if="mails" @mailStarred="mailStarred" @readChosen="readChosen" @readMail="readMail" :mails="mailsToShow" @remove="removeMail" />
+                    <mail-list v-if="mails" @showDetails="showDetails" @replayMail="replayMail" @mailStarred="mailStarred" @readChosen="readChosen" @readMail="readMail" :mails="mailsToShow" @remove="removeMail" />
                 </div>
-                <mail-compose v-if="isCompose"  @saveMail="saveMail"></mail-compose>
+                <mail-compose :mail="mailToCompose" v-if="isCompose"  @saveMail="saveMail"></mail-compose>
+                <mail-details v-if="selectedMail"  :mail="selectedMail" ></mail-details>
             </div>
         </section>
     `,
@@ -39,6 +41,8 @@ export default {
             filterStar: null,
             isInbox: true,
             isCompose: false,
+            selectedMail: null,
+            mailToCompose: null,
 
         };
     },
@@ -56,6 +60,9 @@ export default {
                 .then(() => {
                     this.loadMails();
                 })
+            this.filterStar = null
+            this.isInbox = true
+            this.isCompose = false
         },
 
         removeMail(mailId) {
@@ -72,6 +79,17 @@ export default {
         },
         readMail(mail) {
             mailService.saveMail(mail)
+        },
+        replayMail(mail) {
+            this.isInbox = false
+            this.isCompose = true
+            this.filterStar = false
+            this.mailToCompose = mail
+        },
+        showDetails(mail) {
+            this.selectedMail = mail
+            this.isInbox = false
+            this.isCompose = false
         },
         readChosen(mail) {
             mailService.readChosen(mail)
@@ -101,7 +119,6 @@ export default {
             this.filterStar = false
 
         },
-
         setInbox() {
             this.filterStar = null
             this.isInbox = true
@@ -138,6 +155,13 @@ export default {
                 return booksToShow
             }
 
+        },
+        unReadMails() {
+            var sumUnread = 0
+            this.mails.forEach(mail => {
+                if (!mail.isRead) sumUnread++
+            })
+            return sumUnread
         }
     },
     components: {
@@ -145,6 +169,7 @@ export default {
         mailList,
         mailCompose,
         mailSearch,
-        mailFilter
+        mailFilter,
+        mailDetails
     }
 };

@@ -1,5 +1,5 @@
 export default {
-
+    props: ['mail'],
     template: `
     <section class="mail-compose">
     <form @submit.prevent="save">
@@ -11,7 +11,7 @@ export default {
                 <li> <input type="text" v-model="eMail.subject" placeholder="Subject"></li>
                 <li> <textarea type="text" v-model="eMail.body"  ></textarea></li>  
         </ul>
-        <button>Send</button>
+        <button >Send</button>
         </form>
         
     </section>
@@ -37,7 +37,11 @@ export default {
         }
     },
     created() {
-
+        if (this.mail) {
+            this.eMail.to = this.mail.to
+            this.eMail.subject = ' RE: ' + this.mail.subject
+            this.eMail.body = this.mail.body + '\n\n\n\n RE: \n'
+        }
     },
 
 }
