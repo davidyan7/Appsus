@@ -14,14 +14,14 @@ export default {
             <header class="mail-header ">
                 <h1>Appsus Mail</h1>
                 <mail-search @search="setSearch"></mail-search>
+                <mail-filter class="mail-filter main-layout" @titleSort="titleSort" @dateSort="dateSort" @filter="setFilter" ></mail-filter>
                 </header>
-                    <mail-filter class="main-layout" @titleSort="titleSort" @dateSort="dateSort" @filter="setFilter" ></mail-filter>
-                    <div class="mail-app-body main-layout ">
+                <div class="mail-app-body main-layout ">
                         <nav  v-if="mails" class="mail-nav-bar">
                     <button @click="setCompose" class="compose-btn">+Compose</button>
-                    <button @click="setInbox" class="basic-btn">Inbox     ({{unReadMails}})</button>
-                    <button @click="filterstarred" class="basic-btn">Starred</button>
-                    <button class="basic-btn">Sent Mail</button>
+                    <button @click="setInbox" class="basic-btn">📨 Inbox ({{unReadMails}})</button>
+                    <button @click="filterstarred" class="basic-btn">🌟  Starred</button>
+                    <!-- <button class="basic-btn">Sent Mail</button> -->
                 </nav>
                 <div v-if="isInbox">
                     <mail-list v-if="mails" @showDetails="showDetails" @replayMail="replayMail" @mailStarred="mailStarred" @readChosen="readChosen" @readMail="readMail" :mails="mailsToShow" @remove="removeMail" />

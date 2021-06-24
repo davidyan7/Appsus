@@ -8,8 +8,8 @@ export default {
             <span>{{showTime}}
                 <button @click.stop="mailStarred(mail)" v-if="mail.isStarred">★</button>
                 <button @click.stop="mailStarred(mail)"  v-if="!mail.isStarred">☆</button>
-                <img class="read-img" v-if="isReaden" @click.stop="readChosen(mail)" src="../../../../img/read.png" >
-                <img class="read-img" v-if="!isReaden" @click.stop="readChosen(mail)" src="../../../../img/unread.png" >
+                <img class="read-img" v-if="mail.isRead" @click.stop="readChosen(mail)" src="../../../../img/read.png" >
+                <img class="read-img" v-if="!mail.isRead" @click.stop="readChosen(mail)" src="../../../../img/unread.png" >
             <img @click.stop="remove(mail.id)" src="../../../../img/trash.png">
            
             <!-- <button @click.stop="readChosen(mail)" ></button> -->

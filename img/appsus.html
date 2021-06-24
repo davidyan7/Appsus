@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://127.0.0.1:5502/index.html#/mail -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>appsus</title>
+<link rel="stylesheet" href="./appsus_files/main.css"></head>
+
+<body>
+    <section><header class="app-header"><div class="menu-icon">☰</div> <!----></header> <section class="mail-app-container"><header class="mail-header "><h1>Appsus Mail</h1> <section class="book-search"><label>Search:</label> <input type="text" placeholder="Search..."></section> <section class="mail-filter mail-filter main-layout"><button class="basic-btn">Read/unread</button> <button class="basic-btn">Date</button> <button class="basic-btn">Title</button></section></header> <div class="mail-app-body main-layout "><nav class="mail-nav-bar"><button class="compose-btn">+Compose</button> <button class="basic-btn">📨 Inbox (8)</button> <button class="basic-btn">🌟  Starred</button></nav> <div><section class="mail-list"><div></div> <ul style="
+    height: 30px;
+"><li class="mail-preview-container"><section class="mail-preview"><p class="mail-li marked"><span>sahar</span> <span>i need your help</span> <span>16:22
+                <button>★</button> <!----> <!----> <img src="./appsus_files/unread.png" class="read-img"> <img src="./appsus_files/trash.png"></span></p> <!----></section></li><li class="mail-preview-container"><section class="mail-preview"><p class="mail-li marked"><span>liran</span> <span>I like vue</span> <span>16:22
+                <!----> <button>☆</button> <!----> <img src="./appsus_files/unread.png" class="read-img"> <img src="./appsus_files/trash.png"></span></p> <!----></section></li><li class="mail-preview-container"><section class="mail-preview"><p class="mail-li marked"><span>adam</span> <span>Football today</span> <span>16:22
+                <!----> <button>☆</button> <!----> <img src="./appsus_files/unread.png" class="read-img"> <img src="./appsus_files/trash.png"></span></p> <!----></section></li><li class="mail-preview-container"><section class="mail-preview"><p class="mail-li marked"><span>arik</span> <span>How are you?</span> <span>17:28
+                <!----> <button>☆</button> <!----> <img src="./appsus_files/unread.png" class="read-img"> <img src="./appsus_files/trash.png"></span></p> <!----></section></li><li class="mail-preview-container"><section class="mail-preview"><p class="mail-li marked"><span>david</span> <span>Football today</span> <span>16:22
+                <!----> <button>☆</button> <!----> <img src="./appsus_files/unread.png" class="read-img"> <img src="./appsus_files/trash.png"></span></p> <!----></section></li><li class="mail-preview-container"><section class="mail-preview"><p class="mail-li marked"><span>or</span> <span>How are you?</span> <span>16:23
+                <!----> <button>☆</button> <!----> <img src="./appsus_files/unread.png" class="read-img"> <img src="./appsus_files/trash.png"></span></p> <!----></section></li><li class="mail-preview-container"><section class="mail-preview"><p class="mail-li marked"><span>adi</span> <span>Football today</span> <span>16:22
+                <button>★</button> <!----> <!----> <img src="./appsus_files/unread.png" class="read-img"> <img src="./appsus_files/trash.png"></span></p> <!----></section></li><li class="mail-preview-container"><section class="mail-preview"><p class="mail-li marked"><span>nati</span> <span>How are you?</span> <span>16:22
+                <!----> <button>☆</button> <!----> <img src="./appsus_files/unread.png" class="read-img"> <img src="./appsus_files/trash.png"></span></p> <!----></section></li></ul></section></div> <!----> <!----></div></section> <footer class="app-footer"><p>© Coffeerights</p></footer></section>
+    <script src="./appsus_files/vue.js"></script>
+    <script src="./appsus_files/vue-router.js"></script>
+    <script type="module" src="./appsus_files/main.js"></script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

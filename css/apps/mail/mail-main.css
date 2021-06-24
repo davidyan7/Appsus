@@ -37,11 +37,13 @@ h1 {
     display: flex;
     flex-direction: column;
     width: 200px;
+    height: 250px;
+    grid-column: 1/2
 }
 
 .basic-btn {
     margin: 6px;
-    background-color: #fff;
+    background-color: unset;
     border: hidden;
     cursor: pointer;
     height: 30px;
@@ -62,9 +64,17 @@ h1 {
 /* MAIL BODY */
 
 .mail-app-body {
+    padding: 10px;
     display: grid;
     grid-template-columns: 200px 1fr;
-    grid-template-rows: 80vh;
+    grid-template-rows: 30px 80vh;
+}
+
+
+/* mail-filter */
+
+.mail-filter {
+    background-color: unset;
 }
 
 
@@ -122,4 +132,41 @@ h1 {
     width: 100%;
     resize: none;
     border: 1px solid rgb(216, 216, 216)
+}
+
+
+/* mail-details */
+
+.mail-details img {
+    width: 100%;
+}
+
+@media (max-width: 650px) {
+    .main-layout {
+        max-width: 500px;
+    }
+    .mail-app-body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 80vh;
+        margin: 0;
+    }
+    .mail-nav-bar {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
+        grid-row: 1/2
+    }
+    .mail-li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgb(213, 213, 213);
+        height: 80px;
+        padding: 8px;
+        margin: 0;
+        margin-bottom: 3px;
+    }
 }

@@ -1,0 +1,49 @@
+@import "./apps/keep/keep-main.css";
+@import "./apps/mail/mail-main.css";
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+
+/* HOME-PAGE */
+
+.home-page img {
+    width: 100vw;
+}
+
+
+/* APP-HEADER */
+
+.app-header {
+    height: 60px;
+    position: absolute;
+    z-index: 2;
+}
+
+.app-header img {
+    width: 60px;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+}
+
+.menu-icon {
+    font-size: 3rem;
+}
+
+
+/* NAV BAR HEADER */
+
+.nav-bar-header {
+    background-color: rgb(244, 244, 244);
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: 3px;
+    top: 70px;
+    border-radius: 10px;
+}
