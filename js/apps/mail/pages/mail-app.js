@@ -15,11 +15,9 @@ export default {
                 <h1>Appsus Mail</h1>
                 <mail-search @search="setSearch"></mail-search>
                 </header>
-                <div class="filter main-layout ">
-                    <mail-filter @filter="setFilter"></mail-filter>
-                </div>
-            <div class="mail-app-body main-layout ">
-                <nav  v-if="mails" class="mail-nav-bar">
+                <mail-filter @filter="setFilter" ></mail-filter>
+                    <div class="mail-app-body main-layout ">
+                        <nav  v-if="mails" class="mail-nav-bar">
                     <button @click="setCompose" class="compose-btn">+Compose</button>
                     <button @click="setInbox" class="basic-btn">Inbox     ({{unReadMails}})</button>
                     <button @click="filterstarred" class="basic-btn">Starred</button>
