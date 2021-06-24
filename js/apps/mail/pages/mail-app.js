@@ -52,9 +52,11 @@ export default {
 
         },
         readMail(mail) {
+            console.log('ssss');
             mailService.saveMail(mail)
         },
         readChosen(mail) {
+            console.log('ssss');
             mailService.readChosen(mail)
         },
         setSearch(searchBy) {

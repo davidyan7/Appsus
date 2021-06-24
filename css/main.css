@@ -22,7 +22,6 @@ body {
 .app-header {
     height: 60px;
     position: absolute;
-    top: 50%;
     left: 50%;
     z-index: 2;
     font-size: 2em;

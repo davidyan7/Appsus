@@ -11,7 +11,6 @@ export default {
             <h3>Unread:{{unReadMails}} </h3>
             <li v-for="mail in mails" :key="mail.id" class="mail-preview-container">    
                 <mail-preview :mail="mail" @readChosen="readChosen" @readMail="readMail" @remove="removeMail"></mail-preview>
-                
             </li>
         </ul>
     </section>
