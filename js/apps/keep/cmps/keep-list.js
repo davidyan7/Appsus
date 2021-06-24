@@ -7,12 +7,24 @@ export default {
         keepPreview
     },
     template: `
-    <section class="keep-list">
+    <section >
+    <h1>Pinned</h1>
+    <div class="keep-list">
+    <ul  v-for="note in notes">
+        <li>
+            <keep-preview v-if="note.isPinned" :note="note" @pinned="pinned" @click.native="log(note.id)"></keep-preview>
+        </li>
+    </ul>
+    </div>
+    <h1>Not Pinned</h1>
+    <hr/>
+    <div class="keep-list">
         <ul v-for="note in notes">
             <li>
-                <keep-preview :note="note" @click.native="log(note.id)"></keep-preview>
+                <keep-preview  v-if="!note.isPinned" :note="note" @pinned="pinned" @click.native="log(note.id)" ></keep-preview>
             </li>
         </ul>
+        </div>
     </section>
     `,
     created() {
@@ -20,13 +32,14 @@ export default {
     },
     data() {
         return {
-
         }
     },
     methods: {
         log(noteId) {
-            // console.log('bookId',noteId);
             this.$emit('clicked', noteId)
+        },
+        pinned(note) {
+            this.$emit('pinned', note)
         }
     }
 

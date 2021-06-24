@@ -39,6 +39,17 @@ var noteJson = [
         },
         isEdit: false,
     },
+    {
+        id: 'as123j2a',
+        type: "NoteTxt",
+        isPinned: false,
+        info: {
+            title: "Me playing Mi"
+        },
+        style: {
+            backgroundColor: "#00d"
+        }
+    },
     // {
     //     type: "NoteImg",
     //     info: {
@@ -85,8 +96,8 @@ function getNoteById(id) {
     return storageService.get(KEEP_KEY, id)
 }
 
-function updateNote(book) {
-    return storageService.put(KEEP_KEY, book)
+function updateNote(note) {
+    return storageService.put(KEEP_KEY, note)
 }
 
 function removeNote(id) {
