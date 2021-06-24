@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+/* kee[-header (temporary) */
+.keep-header {
+    text-align: center;
+    height: 80px;
+    background-color: rgb(255, 178, 71);
+}
+
 /* keep-app */
 .keep-edit {
     position: absolute;

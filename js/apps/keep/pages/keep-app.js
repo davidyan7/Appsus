@@ -14,8 +14,10 @@ export default {
     },
     template: `
     <section class="keep-app">
-        <h1>Keep-App</h1>
-        <keep-filter @filter="setFilter"></keep-filter>
+        <header class="keep-header">
+            <h1>Appsus Keep</h1>
+            <keep-filter @filter="setFilter"></keep-filter>
+        </header>
         <keep-add @logNote="addNote"></keep-add>
         
         <keep-list v-if="notes" @pinned="pinned" :notes="notesToShow" @clicked="noteClicked"></keep-list>
