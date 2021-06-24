@@ -106,3 +106,20 @@ h1 {
 .mail-details {
     padding: 20px;
 }
+
+
+/* MAIL-COMPOSE */
+
+.mail-compose input {
+    width: 100%;
+    margin-bottom: 5px;
+    border: unset;
+    border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+.mail-compose textarea {
+    height: 400px;
+    width: 100%;
+    resize: none;
+    border: 1px solid rgb(216, 216, 216)
+}

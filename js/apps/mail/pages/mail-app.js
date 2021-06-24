@@ -15,7 +15,7 @@ export default {
                 <h1>Appsus Mail</h1>
                 <mail-search @search="setSearch"></mail-search>
                 </header>
-                <mail-filter @filter="setFilter" ></mail-filter>
+                    <mail-filter class="main-layout" @titleSort="titleSort" @dateSort="dateSort" @filter="setFilter" ></mail-filter>
                     <div class="mail-app-body main-layout ">
                         <nav  v-if="mails" class="mail-nav-bar">
                     <button @click="setCompose" class="compose-btn">+Compose</button>
@@ -58,6 +58,7 @@ export default {
                 .then(() => {
                     this.loadMails();
                 })
+            this.selectedMail = null
             this.filterStar = null
             this.isInbox = true
             this.isCompose = false
@@ -83,6 +84,7 @@ export default {
             this.isCompose = true
             this.filterStar = false
             this.mailToCompose = mail
+            this.selectedMail = null
         },
         showDetails(mail) {
             this.selectedMail = mail
@@ -110,17 +112,27 @@ export default {
             this.filterStar = true
             this.isInbox = true
             this.isCompose = false
+            this.selectedMail = null
         },
         setCompose() {
             this.isInbox = false
             this.isCompose = true
             this.filterStar = false
+            this.selectedMail = null
 
         },
         setInbox() {
             this.filterStar = null
             this.isInbox = true
             this.isCompose = false
+            this.selectedMail = null
+        },
+        dateSort() {
+            mailService.dateSort(this.mails)
+
+        },
+        titleSort() {
+            mailService.titleSort(this.mails)
 
         }
 

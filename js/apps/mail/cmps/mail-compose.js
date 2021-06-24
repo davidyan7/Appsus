@@ -39,7 +39,7 @@ export default {
     created() {
         if (this.mail) {
             this.eMail.to = this.mail.to
-            this.eMail.subject = ' RE: ' + this.mail.subject
+            this.eMail.subject = 'RE: ' + this.mail.subject
             this.eMail.body = this.mail.body + '\n\n\n\n RE: \n'
         }
     },

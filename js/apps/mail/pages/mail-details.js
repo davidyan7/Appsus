@@ -6,7 +6,7 @@ export default {
             <h2>{{mail.subject}}</h2>
             <h3><{{mail.to}}@gmail.com></h3>
             <p>{{mail.body}}</p>
-            <img v-if="mail.imgUrl" :src="mail.imgUrl" alt="">
+            <img :src="mail.imgUrl" alt="">
     </section>
     `,
     data() {

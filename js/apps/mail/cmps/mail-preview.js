@@ -19,7 +19,7 @@ export default {
             <h2>{{mail.subject}}</h2>
             <h3><{{mail.to}}@gmail.com></h3>
             <p>{{mail.body}}</p>
-            <button @click.stop="replayMail(mail)">Replay</button>
+            <button @click.stop="replayMail(mail)">Reply</button>
             <button @click.stop="showDetails(mail)">details</button>
 
         </div>

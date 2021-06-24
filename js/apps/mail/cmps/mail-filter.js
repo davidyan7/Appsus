@@ -2,6 +2,8 @@ export default {
     template: `
     <section class="mail-filter">
        <button class="basic-btn" @click="filter">{{ReadUnread}}</button>
+       <button class="basic-btn" @click="dateSort">Date</button>
+       <button class="basic-btn" @click="titleSort">Title</button>
     </section>
     `,
     data() {
@@ -23,6 +25,12 @@ export default {
 
             this.$emit('filter', this.filterBy);
             this.isRead = !this.isRead
+        },
+        dateSort() {
+            this.$emit('dateSort');
+        },
+        titleSort() {
+            this.$emit('titleSort');
         }
     }
 };
