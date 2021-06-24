@@ -19,7 +19,9 @@ var noteJson = [
         info: {
             txt: "Fullstack Me Baby!"
         },
-        isEdit: false
+        style: {
+            backgroundColor: "#00d"
+        }
     },
     {
         id: 'asd123jasda',
@@ -28,7 +30,9 @@ var noteJson = [
         info: {
             txt: "Fullstack Me Baby!"
         },
-        isEdit: false,
+        style: {
+            backgroundColor: "#00d"
+        }
     },
     {
         id: 'as123ja',
@@ -37,7 +41,9 @@ var noteJson = [
         info: {
             txt: "Make waze!"
         },
-        isEdit: false,
+        style: {
+            backgroundColor: "#00d"
+        }
     },
     {
         id: 'as123j2a',

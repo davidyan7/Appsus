@@ -18,13 +18,10 @@ export default {
             <h1>Appsus Keep</h1>
             <keep-filter @filter="setFilter"></keep-filter>
         </header>
-        <keep-add @logNote="addNote"></keep-add>
+        <keep-add @logNote="addNote" :colors="colors"></keep-add>
         
         <keep-list v-if="notes" @pinned="pinned" :notes="notesToShow" @clicked="noteClicked"></keep-list>
         <nav class="nav-bar">
-            <!-- <router-link to="/" active-class="active-link" exact>Home</router-link> |
-            <router-link to="/mail" >Mail</router-link> |
-            <router-link to="/keep" >Keep</router-link>  -->
         </nav>
         <keep-edit v-if="clickedNote" :note="clickedNote" @done="editDone" @deleteNote="deleteNote"></keep-edit>
     </section>
@@ -38,7 +35,8 @@ export default {
         return {
             notes: null,
             clickedNote: null,
-            filterBy: null
+            filterBy: null,
+            colors:['#df4545', '#80df45','#7c80f2','#c865e1', '#2abaa6']
         }
     },
     methods: {
@@ -81,6 +79,9 @@ export default {
             console.log(filterBy);
             this.filterBy = filterBy;
         },
+        color() {
+            
+        }
     },
     computed: {
         notesToShow() {

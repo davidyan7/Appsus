@@ -1,10 +1,10 @@
 import { eventBus } from "../../../services/event-bus-service.js";
 
-
 export default {
     props: ['note'],
     components: {
         // keepDetails
+        
     },
     template: `
     <section class="keep-preview">
