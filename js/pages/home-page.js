@@ -1,3 +1,5 @@
+import appHeader from '../cmps/app-header.js'
+
 export default {
     template: `
    <section class="home-page">
@@ -10,4 +12,7 @@ export default {
 
 
     },
+    components: {
+        appHeader
+    }
 };

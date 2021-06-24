@@ -5,3 +5,78 @@
 .marked {
     font-weight: bold;
 }
+
+
+/* MAIL HEADER */
+
+.mail-header {
+    text-align: center;
+    height: 80px;
+    background-color: rgb(255, 178, 71);
+}
+
+
+/* MAIL SIDE NAVBAR */
+
+.mail-nav-bar {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.basic-btn {
+    margin: 6px;
+    background-color: #fff;
+    border: hidden;
+    cursor: pointer;
+    height: 30px;
+}
+
+.compose-btn {
+    border: 2px solid rgb(223, 223, 223);
+    border-radius: 20px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.mail-nav-bar button:hover {
+    background-color: rgba(255, 183, 183, 0.489);
+}
+
+
+/* MAIL BODY */
+
+.mail-app-body {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 80vh;
+}
+
+
+/* MAIL LI */
+
+.mail-li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(213, 213, 213);
+    height: 40px;
+    padding: 8px;
+    margin: 0;
+    margin-bottom: 3px;
+}
+
+.mail-li span {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.mail-li:hover {
+    background-color: rgba(211, 211, 211, 0.701);
+}
+
+.mail-li img {
+    width: 30px;
+}

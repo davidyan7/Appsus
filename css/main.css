@@ -12,7 +12,7 @@ body {
 /* HOME-PAGE */
 
 .home-page img {
-    width: 100%;
+    height: 100vh;
     position: absolute;
 }
 
@@ -22,8 +22,42 @@ body {
 .app-header {
     height: 60px;
     position: absolute;
-    left: 50%;
     z-index: 2;
-    font-size: 2em;
-    text-decoration: none;
+}
+
+.app-header img {
+    width: 70px;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+}
+
+
+/* NAV BAR HEADER */
+
+.nav-bar-header {
+    background-color: rgb(244, 244, 244);
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: 3px;
+    top: 80px;
+    border-radius: 10px;
+}
+
+
+/* MAIL-COMPOSE */
+
+.mail-compose input {
+    width: 100%;
+    margin-bottom: 5px;
+    border: unset;
+    border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+.mail-compose textarea {
+    height: 400px;
+    width: 100%;
+    resize: none;
+    border: 1px solid rgb(216, 216, 216)
 }

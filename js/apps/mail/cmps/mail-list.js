@@ -10,7 +10,7 @@ export default {
         <ul>
             <h3>Unread:{{unReadMails}} </h3>
             <li v-for="mail in mails" :key="mail.id" class="mail-preview-container">    
-                <mail-preview :mail="mail" @readChosen="readChosen" @readMail="readMail" @remove="removeMail"></mail-preview>
+                <mail-preview :mail="mail" @mailStarred="mailStarred" @readChosen="readChosen" @readMail="readMail" @remove="removeMail"></mail-preview>
             </li>
         </ul>
     </section>
@@ -39,6 +39,9 @@ export default {
         readChosen(mail) {
             this.$emit('readChosen', mail);
         },
+        mailStarred(mail) {
+            this.$emit('mailStarred', mail);
+        }
 
     },
     created() {

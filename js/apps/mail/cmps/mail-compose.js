@@ -11,7 +11,7 @@ export default {
                 <li> <input type="text" v-model="eMail.subject" placeholder="Subject"></li>
                 <li> <textarea type="text" v-model="eMail.body"  ></textarea></li>  
         </ul>
-        <button>Save</button>
+        <button>Send</button>
         </form>
         
     </section>
@@ -25,7 +25,8 @@ export default {
                 subject: '',
                 body: '',
                 sentAt: Date.now(),
-                isRead: false
+                isRead: false,
+                isStarred: false,
             }
 
         }

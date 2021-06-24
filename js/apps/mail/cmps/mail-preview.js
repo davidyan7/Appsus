@@ -2,17 +2,24 @@ export default {
     props: ['mail'],
     template: `
     <section @click="readMail(mail)" class="mail-preview" >
-        <p :class="isRead">
+        <p :class="isRead" class="mail-li">
             <span>{{mail.to}}</span>
             <span>{{mail.subject}}</span>
-            <span>{{showTime}}</span>
-            <button @click.stop="remove(mail.id)">X</button>
-            <button @click.stop="readChosen(mail)">{{readChose}}</button>
+            <span>{{showTime}}
+                <button @click.stop="mailStarred(mail)" v-if="mail.isStarred">★</button>
+                <button @click.stop="mailStarred(mail)"  v-if="!mail.isStarred">☆</button>
+            <img @click.stop="remove(mail.id)" src="../../../../img/trash.png">
+            <img class="read-img" v-if="isReaden" @click.stop="readChosen(mail)" src="../../../../img/read.png" >
+            <img class="read-img" v-if="!isReaden" @click.stop="readChosen(mail)" src="../../../../img/unread.png" >
+           
+            <!-- <button @click.stop="readChosen(mail)" ></button> -->
+        </span>
         </p>
         <div v-if="isOpen"> 
             <h2>{{mail.subject}}</h2>
             <h3><{{mail.to}}@gmail.com></h3>
             <p>{{mail.body}}</p>
+            <button>Replay</button>
 
         </div>
     </section>
@@ -20,12 +27,13 @@ export default {
     data() {
         return {
             isOpen: false,
+            isReaden: false,
+            isStarred: false
         }
     },
     computed: {
         readChose() {
-            if (this.mail.isRead) return 'Unread'
-            else return 'Read'
+            return (this.mail.isRead)
 
         },
 
@@ -47,7 +55,12 @@ export default {
             this.$emit('readMail', mail);
         },
         readChosen(mail) {
+            this.isReaden = !this.isReaden
             this.$emit('readChosen', mail);
+        },
+        mailStarred(mail) {
+            this.isStarred = !this.isStarred
+            this.$emit('mailStarred', mail);
         }
 
     },
