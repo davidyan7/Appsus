@@ -18,12 +18,13 @@ export default {
             <h1>Appsus Keep</h1>
             <keep-filter @filter="setFilter"></keep-filter>
         </header>
-        <keep-add @logNote="addNote" :colors="colors"></keep-add>
+        <keep-add @logNote="logNote" @openScreen="openScreen" :colors="colors"></keep-add>
         
         <keep-list v-if="notes" @pinned="pinned" :notes="notesToShow" @clicked="noteClicked"></keep-list>
         <nav class="nav-bar">
         </nav>
         <keep-edit v-if="clickedNote" :note="clickedNote" @done="editDone" @deleteNote="deleteNote"></keep-edit>
+        <div class="screen" :class="isOpen" @click="closeScreen"></div>
     </section>
     `,
     created() {
@@ -36,7 +37,9 @@ export default {
             notes: null,
             clickedNote: null,
             filterBy: null,
-            colors:['#df4545', '#80df45','#7c80f2','#c865e1', '#2abaa6']
+            colors: ['#df4545', '#80df45', '#7c80f2', '#c865e1', '#2abaa6'],
+            isScreenOpen: false,
+            currNote: null
         }
     },
     methods: {
@@ -45,10 +48,15 @@ export default {
             keepService.query()
                 .then(notes => this.notes = notes)
         },
-        addNote(note) {
+        logNote(note) {
+            this.currNote = note
+            
+            console.log(note);
+        },
+        addNote() {
             console.log('adding note...');
             // console.log(note);
-            keepService.addNewNote(note)
+            keepService.addNewNote(this.currNote)
                 .then(() => this.loadNotes())
         },
         editNote(note) {
@@ -79,8 +87,13 @@ export default {
             console.log(filterBy);
             this.filterBy = filterBy;
         },
-        color() {
-            
+        closeScreen() {
+            this.isScreenOpen = false
+            console.log('closed');
+            this.addNote()
+        },
+        openScreen() {
+            this.isScreenOpen = true
         }
     },
     computed: {
@@ -107,5 +120,9 @@ export default {
             })
             return notesToShow
         },
+        isOpen() {
+            var isOpen = this.isScreenOpen
+            return { open: isOpen }
+        }
     }
 };
