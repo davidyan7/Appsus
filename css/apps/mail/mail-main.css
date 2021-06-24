@@ -134,6 +134,10 @@ h1 {
     border: 1px solid rgb(216, 216, 216)
 }
 
+.send-btn {
+    margin-left: 40px;
+}
+
 
 /* mail-details */
 
@@ -148,16 +152,16 @@ h1 {
     .mail-app-body {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 100px 80vh;
+        grid-template-rows: 40px 80vh;
         margin: 0;
     }
     .mail-nav-bar {
-        margin-top: 50px;
         display: flex;
         flex-direction: row;
         width: 100%;
         justify-content: space-evenly;
-        grid-row: 1/2
+        grid-row: 1/2;
+        margin-top: 5px;
     }
     .mail-li {
         display: flex;
@@ -168,5 +172,14 @@ h1 {
         padding: 8px;
         margin: 0;
         margin-bottom: 3px;
+    }
+    .mail-list ul {
+        padding: 0;
+    }
+    .mail-compose ul {
+        padding: 0;
+    }
+    .send-btn {
+        margin-left: 0;
     }
 }

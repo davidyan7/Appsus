@@ -128,10 +128,12 @@ export default {
             this.selectedMail = null
         },
         dateSort() {
+            if (this.isCompose) return
             mailService.dateSort(this.mails)
 
         },
         titleSort() {
+            if (this.isCompose) return
             mailService.titleSort(this.mails)
 
         }

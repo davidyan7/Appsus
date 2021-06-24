@@ -11,7 +11,7 @@ export default {
                 <li> <input type="text" v-model="eMail.subject" placeholder="Subject"></li>
                 <li> <textarea type="text" v-model="eMail.body"  ></textarea></li>  
         </ul>
-        <button >Send</button>
+        <button class="send-btn ">Send</button>
         </form>
         
     </section>

@@ -4,11 +4,7 @@ export default {
     props: ['mails'],
     template: `
     <section class="mail-list">
-        <div>
-
-        </div>
         <ul>
-            <!-- <h3>Unread:{{unReadMails}} </h3> -->
             <li v-for="mail in mails" :key="mail.id" class="mail-preview-container">    
                 <mail-preview :mail="mail"  @showDetails="showDetails" @replayMail="replayMail" @mailStarred="mailStarred" @readChosen="readChosen" @readMail="readMail" @remove="removeMail"></mail-preview>
             </li>
