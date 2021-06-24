@@ -7,11 +7,14 @@ export default {
         
     },
     template: `
-    <section class="keep-preview">
+    <section class="keep-preview" :style="'background-color:'+bgc">
         <div class="note-container">
         <button class="pin-keep-preview" @click.stop="pinned(note)">📌</button>
             <!-- {{note.info.txt}} -->
-            <textarea v-model="note.info.txt" disabled></textarea>
+            <!-- <p>{{fullText}}</p> -->
+            <!-- <div>{{note.info.txt}}</div> -->
+            <textarea v-model="fullText" :style="'background-color:'+bgc" disabled></textarea> 
+
         </div>
     </section>
     `,
@@ -28,6 +31,13 @@ export default {
             // eventBus.$emit('pinned', note)
             this.$emit('pinned', note)
         }
+    },
+    computed: {
+        bgc() {
+            return this.note.style.backgroundColor
+        },
+        fullText() {
+            return this.note.info.title +'\n' +this.note.info.txt
+        }
     }
-
 };
