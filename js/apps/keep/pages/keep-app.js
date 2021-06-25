@@ -60,6 +60,7 @@ export default {
             // console.log(note);
             keepService.addNewNote(this.currNote)
                 .then(() => this.loadNotes())
+                .catch(err => console.log('error', err))
         },
         editNote(note) {
             keepService.updateNote(note)

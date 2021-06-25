@@ -4,7 +4,7 @@ export default {
     template: `
         <section class="add-img">
                 <input type="text" v-model="note.info.title" @input="logNote" placeholder="Title">
-                <textarea type="text" v-model="note.info.txt" @input="logNote" placeholder="Take a note"></textarea>
+                <textarea type="text" v-model="note.info.txt" @input="logNote" placeholder="Enter image"></textarea>
             </div>
         </section>
     `,
