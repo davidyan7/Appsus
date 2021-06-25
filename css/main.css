@@ -25,7 +25,11 @@ body {
 /* HOME-PAGE */
 
 .home-page img {
-    width: 100vw;
+    height: 100%;
+    /* background-image: url('../../img/bg/bg-img5.jpg'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 
@@ -46,6 +50,7 @@ body {
 
 .menu-icon {
     font-size: 2.75rem;
+    margin-top: 7px;
 }
 
 
