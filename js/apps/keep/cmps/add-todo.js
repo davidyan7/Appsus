@@ -1,18 +1,8 @@
 export default {
     // props: ['note'],
-    components: {
-    },
+    components: {},
     template: `
-        <!-- <section class="keep-add">
-            <button class="pin-textarea">📌</button>
-            <textarea id="textArea" name="text-area" v-model="noteTxt.info.txt" placeholder="Take a note" @blur="logNote" :style="'background:' + bgcColor">    
-            </textarea>
-            <color-picker :colors=colors @colorChange="changeTextareaBgc" ></color-picker>
-        </section> -->
-        <section class="add-txt">
-            <!-- <div class="add-note-container" tabindex="0" :style="'background:' + bgcColor"> -->
-            
-                <!-- <button class="pin-textarea">📌</button> -->
+        <section class="add-todo">
                 <input type="text" v-model="note.info.title" @input="logNote" placeholder="Title">
                 <textarea type="text" v-model="note.info.txt" @input="logNote" placeholder="Take a note"></textarea>
             </div>
@@ -24,14 +14,17 @@ export default {
     data() {
         return {
             note: {
-                type: "noteTxt",
-                isPinned: false,
+
+                type: "noteTodo",
                 info: {
-                    title: null,
-                    txt: null
-                },
-                style: {
-                    backgroundColor: null
+                    label: null,
+                    todos: [
+                        { txt: null, isDone: false },
+                        { txt: null, isDone: false }
+                    ],
+                    style: {
+                        backgroundColor: "#00d"
+                    }
                 }
             },
         }

@@ -8,6 +8,19 @@ body {
     margin: 0;
 }
 
+.main-container {
+    /* display: flex; */
+}
+
+.app-footer {
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(255, 178, 71);
+    text-align: center;
+}
+
 
 /* HOME-PAGE */
 
