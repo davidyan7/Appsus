@@ -47,3 +47,14 @@ body {
     top: 70px;
     border-radius: 10px;
 }
+
+
+/* USER MSG */
+
+.user-msg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #fff;
+}

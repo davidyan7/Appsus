@@ -14,8 +14,8 @@ export default {
     },
     computed: {
         ReadUnread() {
-            if (this.isRead) return 'Read/unread'
-            else return 'read/Unread'
+            if (this.isRead) return 'READ/unread'
+            else return 'read/UNREAD'
         }
     },
     methods: {

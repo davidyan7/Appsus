@@ -1,4 +1,5 @@
 import { mailService } from '../services/mail-service.js';
+import { eventBus } from '../../../services/event-bus-service.js';
 import mailList from '../cmps/mail-list.js'
 import mailSearch from '../cmps/mail-search.js'
 import mailFilter from '../cmps/mail-filter.js'
@@ -26,7 +27,7 @@ export default {
                 <div v-if="isInbox">
                     <mail-list v-if="mails" @showDetails="showDetails" @replayMail="replayMail" @mailStarred="mailStarred" @readChosen="readChosen" @readMail="readMail" :mails="mailsToShow" @remove="removeMail" />
                 </div>
-                <mail-compose :mail="mailToCompose" v-if="isCompose"  @saveMail="saveMail"></mail-compose>
+                <mail-compose :mail="mailToCompose" v-if="isCompose"  @saveMail="sendMail"></mail-compose>
                 <mail-details v-if="selectedMail"  :mail="selectedMail" ></mail-details>
             </div>
         </section>
@@ -53,11 +54,16 @@ export default {
                 .then(mails => this.mails = mails);
         },
 
-        saveMail(mail) {
+        sendMail(mail) {
             mailService.addMail(mail)
                 .then(() => {
                     this.loadMails();
                 })
+            const msg = {
+                txt: 'Mail send success',
+                type: 'success'
+            };
+            eventBus.$emit('show-msg', msg, this.book);
             this.selectedMail = null
             this.filterStar = null
             this.isInbox = true
@@ -65,15 +71,19 @@ export default {
         },
 
         removeMail(mailId) {
-            console.log(mailId);
-            mailService.remove(mailId)
-                .then(() => {
-                    this.loadMails();
-                    console.log('remove');
-                })
-                .catch((err) => {
-                    console.log('error', err);
-                })
+            const isRemove = confirm('Remove Mail?')
+            if (isRemove) {
+
+                mailService.remove(mailId)
+                    .then(() => {
+                        this.loadMails();
+                        const msg = {
+                            txt: 'Mail Remove',
+                            type: 'success'
+                        };
+                        eventBus.$emit('show-msg', msg, this.book);
+                    })
+            } else return
 
         },
         readMail(mail) {
@@ -95,7 +105,6 @@ export default {
             mailService.readChosen(mail)
         },
         mailStarred(mail) {
-            console.log('app');
             mailService.mailStarred(mail)
         },
         setStarred() {
@@ -108,13 +117,14 @@ export default {
             this.filterBy = filterBy;
         },
         filterstarred() {
-            console.log('star');
             this.filterStar = true
+            this.mailToCompose = null
             this.isInbox = true
             this.isCompose = false
             this.selectedMail = null
         },
         setCompose() {
+            this.mailToCompose = null
             this.isInbox = false
             this.isCompose = true
             this.filterStar = false
@@ -123,6 +133,7 @@ export default {
         },
         setInbox() {
             this.filterStar = null
+            this.mailToCompose = null
             this.isInbox = true
             this.isCompose = false
             this.selectedMail = null
