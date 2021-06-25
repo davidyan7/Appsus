@@ -24,7 +24,7 @@ export default {
                 <div class="content" contentEditable="true" data-placeholder="hi" @input="onInput" @click="onClickField" :class="isContentPlaceholder"></div> -->
                 <component :is="cmpType" @logNote="logNote"></component>
                 <color-picker :colors=colors @colorChange="changeColor" ></color-picker>
-                <keep-add-type></keep-add-type>
+                <keep-add-type @typechange="changeType"></keep-add-type>
             </div>
         </section>
     `,
@@ -82,6 +82,9 @@ export default {
         },
         saveNoteToData(note) {
             this.note = note
+        },
+        changeType(type) {
+            this.cmpType = type
         }
 
     },

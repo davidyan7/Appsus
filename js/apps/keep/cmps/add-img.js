@@ -28,8 +28,6 @@ export default {
     },
     methods: {
         logNote() {
-            console.log(this.note.info.title);
-            console.log(this.note.info.txt);
             this.$emit('logNote', this.note)
         }
     }
