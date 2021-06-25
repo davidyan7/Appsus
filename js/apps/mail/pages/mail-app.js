@@ -24,7 +24,6 @@ export default {
                     <button @click="setCompose" class="compose-btn">+Compose</button>
                     <button @click="setInbox" class="basic-btn">📨 Inbox ({{unReadMails}})</button>
                     <button @click="filterstarred" class="basic-btn">🌟  Starred</button>
-                    <!-- <button class="basic-btn">Sent Mail</button> -->
                 </nav>
                 <div v-if="isInbox">
                     <mail-list v-if="mails" @showDetails="showDetails" @replayMail="replayMail" @mailStarred="mailStarred" @readChosen="readChosen" @readMail="readMail" :mails="mailsToShow" @remove="removeMail" />
@@ -32,7 +31,6 @@ export default {
                 <mail-compose :mail="mailToCompose" v-if="isCompose"  @saveMail="sendMail"></mail-compose>
                 <mail-details v-if="selectedMail"  :mail="selectedMail" ></mail-details>
             </div>
-           
         </section>
     `,
     data() {

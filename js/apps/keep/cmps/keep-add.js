@@ -3,6 +3,7 @@ import addTxt from "./add-txt.js";
 import addImg from "./add-img.js";
 import addVideo from "./add-video.js";
 import addTodo from "./add-todo.js";
+import addAudio from "./add-audio.js";
 import keepAddType from "./keep-add-type.js";
 
 export default {
@@ -13,7 +14,8 @@ export default {
         addTxt,
         addImg,
         addVideo,
-        addTodo
+        addTodo,
+        addAudio
     },
     template: `
         <!-- <section class="keep-add">
@@ -70,7 +72,7 @@ export default {
         changeColor(color) {
             console.log('change color');
             this.currColor = color
-            // this.noteTxt.style.backgroundColor = color
+                // this.noteTxt.style.backgroundColor = color
         },
         onInput(ev) {
             // console.log(ev.target.className);
@@ -100,7 +102,7 @@ export default {
 
         bgcColor() {
             return `background-color: ${this.currColor};`
-            // return this.noteTxt.style.backgroundColor
+                // return this.noteTxt.style.backgroundColor
         },
         // isTitlePlaceholder() {
         //     var isClicked = this.isTitleClicked

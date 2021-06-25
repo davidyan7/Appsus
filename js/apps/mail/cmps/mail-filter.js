@@ -15,7 +15,7 @@ export default {
     `,
     data() {
         return {
-            filterBy: null,
+            filterBy: '',
             isRead: true
         };
     },

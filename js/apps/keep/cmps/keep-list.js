@@ -1,6 +1,7 @@
 import noteTxt from "./note-txt.js";
 import noteTodo from "./note-todo.js";
 import noteImg from "./note-img.js";
+import noteAudio from "./note-audio.js";
 import noteVideo from "./note-video.js"
 
 export default {
@@ -10,7 +11,8 @@ export default {
         noteTxt,
         noteTodo,
         noteImg,
-        noteVideo
+        noteVideo,
+        noteAudio
     },
     template: `
     <section class="keep-list" >

@@ -5,6 +5,7 @@ export default {
         <span class="addImg" @click="typechange">image</span>
         <span class="addVideo" @click="typechange">video</span>
         <span class="addTodo" @click="typechange">todo</span>
+        <span class="addAudio" @click="typechange">audio</span>
     </section>
     `,
     methods: {

@@ -11,8 +11,7 @@ export const keepService = {
 
 const KEEP_KEY = 'notes'
 
-var noteJson = [
-    {
+var noteJson = [{
         id: 'asd123ja',
         type: "note-txt",
         isPinned: false,
@@ -96,9 +95,20 @@ var noteJson = [
             backgroundColor: "#fff"
         }
     },
+    {
+        type: "noteAudio",
+        info: {
+            url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+            title: null
+        },
+        style: {
+            backgroundColor: "#fff"
+        },
+    }
 ];
 
 createNotes()
+
 function createNotes() {
     let notes = utilService.loadFromStorage(KEEP_KEY);
     if (!notes || !notes.length) {
