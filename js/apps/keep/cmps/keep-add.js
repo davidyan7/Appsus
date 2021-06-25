@@ -1,10 +1,10 @@
 import colorPicker from "./color-picker.js";
-import addTxt from "./add-txt";
-import addImg from "./add-img";
-import addVideo from "./add-video";
-import addTodo from "./add-todo";
-import keepAddType from "./keep-add-type.js";
 import addTxt from "./add-txt.js";
+import addImg from "./add-img.js";
+import addVideo from "./add-video.js";
+import addTodo from "./add-todo.js";
+import keepAddType from "./keep-add-type.js";
+
 
 export default {
     props: ['colors'],

@@ -4,7 +4,7 @@ export default {
     template: `
         <section class="add-video">
                 <input type="text" v-model="note.info.title" @input="logNote" placeholder="Title">
-                <textarea type="text" v-model="note.info.txt" @input="logNote" placeholder="Take a note"></textarea>
+                <textarea type="text" v-model="note.info.url" @input="logNote" placeholder="Add video url"></textarea>
             </div>
         </section>
     `,

@@ -33,11 +33,10 @@ export default {
 
     },
     data() {
-        return {
-        }
+        return {}
     },
     methods: {
-        done(note){
+        done(note) {
             this.$emit('done', note)
         },
         log(noteId) {
