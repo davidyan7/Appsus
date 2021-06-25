@@ -14,9 +14,10 @@ const KEEP_KEY = 'notes'
 var noteJson = [
     {
         id: 'asd123ja',
-        type: "NoteTxt",
+        type: "note-txt",
         isPinned: false,
         info: {
+            title: 'okii',
             txt: "Fullstack Me Baby!"
         },
         style: {
@@ -25,9 +26,10 @@ var noteJson = [
     },
     {
         id: 'asd123jasda',
-        type: "NoteTxt",
+        type: "noteTxt",
         isPinned: false,
         info: {
+            title: 'makore',
             txt: "Fullstack Me Baby!"
         },
         style: {
@@ -36,9 +38,10 @@ var noteJson = [
     },
     {
         id: 'as123ja',
-        type: "NoteTxt",
+        type: "noteTxt",
         isPinned: true,
         info: {
+            title: 'Next task',
             txt: "Make waze!"
         },
         style: {
@@ -47,35 +50,49 @@ var noteJson = [
     },
     {
         id: 'as123j2a',
-        type: "NoteTxt",
+        type: "noteTxt",
         isPinned: false,
         info: {
-            title: "Me playing Mi"
+            title: "Me playing Mi",
+            txt: 'All day long'
         },
         style: {
             backgroundColor: "#fff"
         }
     },
-    // {
-    //     type: "NoteImg",
-    //     info: {
-    //         url: "http://some-img/me",
-    //         title: "Me playing Mi"
-    //     },
-    //     style: {
-    //         backgroundColor: "#00d"
-    //     }
-    // },
-    // {
-    //     type: "NoteTodos",
-    //     info: {
-    //         label: "How was it:",
-    //         todos: [
-    //             { txt: "Do that", doneAt: null },
-    //             { txt: "Do this", doneAt: 187111111 }
-    //         ]
-    //     }
-    // }
+    {
+        id: 'as123sj2a',
+        type: "noteImg",
+        info: {
+            url: "https://www.calmsage.com/wp-content/uploads/2020/05/what-is-4me-time-and-10-ways-to-enjoy-your-me-time2-.jpg",
+            title: "Me playing Mi"
+        },
+        style: {
+            backgroundColor: "#00d"
+        }
+    },
+    {
+        id: 'as123j2a23',
+        type: "noteTodo",
+        info: {
+            label: "How was it:",
+            todos: [
+                { txt: "Do that", isDone: false },
+                { txt: "Do this", isDone: false }
+            ]
+        }
+    },
+    {
+        id: 'as2123j2a23',
+        type: "noteVideo",
+        info: {
+            url: "https://www.youtube.com/embed/tgbNymZ7vqY",
+            title: "Me playing Mi"
+        },
+        style: {
+            backgroundColor: "#fff"
+        }
+    }
 ];
 
 createNotes()

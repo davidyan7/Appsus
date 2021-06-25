@@ -8,6 +8,10 @@ p {
     margin: 0;
 }
 
+h3 {
+    margin: 0;
+}
+
 /* kee[-header (temporary) */
 
 .keep-header {
@@ -52,13 +56,15 @@ p {
     cursor: pointer;
 }
 
-.keep-edit .edit-remove-btn {
+/* .keep-edit .edit-remove-btn {
     position: absolute;
     bottom: 3px;
     right: 3px;
-    cursor: pointer;
-    /* z-index: 2; */
-}
+    cursor: pointer; */
+
+/* z-index: 2; */
+
+/* } */
 
 /* keep-add */
 
@@ -71,17 +77,16 @@ p {
     margin: auto;
     z-index: 2;
 }
- 
+
 .keep-app .screen.open {
     position: absolute;
     /* width: 100%; */
     /* height: 100%; */
     /* background-color: rgb(15, 63, 47); */
     top: 0;
-     width: 1000px;
+    width: 1000px;
     height: 1000px;
 }
-
 
 .keep-add p::before {
     content: 'Title'
@@ -107,21 +112,20 @@ p {
     /* z-index: 2; */
     border: 1px solid;
     padding: 30px 10px;
-
 }
 
 .note-container {
     position: relative;
     height: 100%;
     width: 100%;
-    padding: 30px 10px;
+    /* padding: 30px 10px; */
+    min-height: 100px;
 }
 
-.note-container .pin-keep-preview {
+.note-item .keep-note-pin {
     position: absolute;
     top: 3px;
     right: 3px;
-
 }
 
 .keep-add textarea {
@@ -161,7 +165,7 @@ p {
     gap: 10px;  */
 }
 
-.keep-list .keep-item{
+.keep-list .keep-item {
     /* break-inside: avoid-column;
     height: fit-content; */
 }
@@ -172,26 +176,55 @@ p {
     padding: 0;
 } */
 
-/* keep-preview */
+/* notes */
 
-.keep-preview {
-    /* float: left; */
+.note-item ul {
+    padding: 0;
+    margin: 0;
+}
+
+.note-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.note-item .text-content {
+    padding: 0 8px
+}
+
+/* note-txt */
+
+.note-item {
+    position: relative;
     break-inside: avoid-column;
     height: fit-content;
     border: 1px solid rgba(90, 88, 88, 0.5);
     border-radius: 8px;
-    /* height: 104px; */
-    /* width: 100%; */
+    width: 100%;
     height: fit-content;
     word-wrap: break-word;
-    padding: 8px;
-    /* cursor: pointer; */
-    /* transition: all 0.4; */
+    padding: 30px 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     transition: box-shadow 0.1s;
-    /* height: unset; */
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
-.keep-preview textarea {
+.note-item .delete-note {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    cursor: pointer;
+}
+
+.note-item:hover {
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.8);
+}
+
+.note-item textarea {
     width: 100%;
     /* height:  */
     border-radius: 6px;
@@ -202,8 +235,8 @@ p {
     /* transition: all 0.4 ease-in-out; */
 }
 
-.keep-preview:hover {
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.8);
+.note-item.txt{
+padding-top: 30px;
 }
 
 /* Color-picker */
@@ -231,18 +264,31 @@ p {
 
 } */
 
-/* img-comp */
+/* note-img */
 
-.img-comp {
-border: 1px solid;
-width: 250px;
-}
-
-.img-comp .img-container {
-    
+.note-item.img {
+    padding: 30px 0
     /* height: 300px; */
 }
 
 img {
     width: 100%;
+}
+
+.note-item.video {
+    padding: 30px 0
+}
+
+/* note-todo */
+
+.todo-line {
+    display: flex;
+    justify-content: space-between;
+}
+.todo-line p{
+    width: 85%;
+}
+
+.todo-line p.crossed{
+    text-decoration: line-through;
 }

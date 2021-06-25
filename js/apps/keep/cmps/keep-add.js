@@ -15,9 +15,9 @@ export default {
         </section> -->
         <section class="keep-add">
             <div class="add-note-container" tabindex="0" @click="onClickField":style="'background:' + bgcColor">
-                <button class="pin-textarea">📌</button>
+                <!-- <button class="pin-textarea">📌</button>
                 <p class="title" contentEditable placeholder="enter text" @input="onInput"  @click="onClickField" :class="isTitlePlaceholder"></p>
-                <div class="content" contentEditable="true" data-placeholder="hi" @input="onInput" @click="onClickField" :class="isContentPlaceholder"></div>
+                <div class="content" contentEditable="true" data-placeholder="hi" @input="onInput" @click="onClickField" :class="isContentPlaceholder"></div> -->
                 <color-picker :colors=colors @colorChange="changeTextareaBgc" ></color-picker>
             </div>
         </section>
@@ -28,7 +28,7 @@ export default {
     data() {
         return {
             noteTxt: {
-                type: "NoteTxt",
+                type: "noteTxt",
                 isPinned: false,
                 info: {
                     title: null,
@@ -45,21 +45,7 @@ export default {
     methods: {
         logNote() {
             console.log('working');
-            // this.isTitleClicked = false
-            // this.isContentClicked = false
-            // if (!this.noteTxt.info.txt) return
             this.$emit('logNote', this.noteTxt);
-            // this.noteTxt = {
-            //     type: "NoteTxt",
-            //     isPinned: false,
-            //     info: {
-            //         title: null,
-            //         txt: null
-            //     },
-            //     style: {
-            //         backgroundColor: null
-            //     }
-            // }
         },
         changeTextareaBgc(color) {
             console.log('change color');

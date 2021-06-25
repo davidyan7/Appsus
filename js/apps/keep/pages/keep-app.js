@@ -18,12 +18,13 @@ export default {
             <h1>Appsus Keep</h1>
             <keep-filter @filter="setFilter"></keep-filter>
         </header>
+        
         <keep-add @logNote="logNote" @openScreen="openScreen" :colors="colors"></keep-add>
         
-        <keep-list v-if="notes" @pinned="pinned" :notes="notesToShow" @clicked="noteClicked"></keep-list>
-        <nav class="nav-bar">
-        </nav>
-        <keep-edit v-if="clickedNote" :note="clickedNote" @done="editDone" @deleteNote="deleteNote"></keep-edit>
+        <keep-list v-if="notes" @done="editDone" @pinned="pinned" @deleteNote="deleteNote" :notes="notesToShow" @clicked="noteClicked"></keep-list>
+       
+        <keep-edit v-if="false" :note="clickedNote" @done="editDone" @deleteNote="deleteNote"></keep-edit>
+        
         <div class="screen" :class="isOpen" @click="closeScreen"></div>
     </section>
     `,
@@ -62,6 +63,7 @@ export default {
         editNote(note) {
             keepService.updateNote(note)
                 .then(() => this.loadNotes())
+                console.log('edit');
         },
         noteClicked(id) {
             console.log('getting note...', id);
