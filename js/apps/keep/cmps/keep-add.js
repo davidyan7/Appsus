@@ -1,4 +1,8 @@
 import colorPicker from "./color-picker.js";
+import addTxt from "./add-txt";
+import addImg from "./add-img";
+import addVideo from "./add-video";
+import addTodo from "./add-todo";
 import keepAddType from "./keep-add-type.js";
 import addTxt from "./add-txt.js";
 
@@ -7,7 +11,10 @@ export default {
     components: {
         colorPicker,
         keepAddType,
-        addTxt
+        addTxt,
+        addImg,
+        addVideo,
+        addTodo
     },
     template: `
         <!-- <section class="keep-add">
@@ -44,7 +51,7 @@ export default {
             //         backgroundColor: null
             //     }
             // },
-            note:null,
+            note: null,
             isTitleClicked: false,
             isContentClicked: false,
             cmpType: 'addTxt'
@@ -57,9 +64,9 @@ export default {
         //     this.$emit('logNote', this.noteTxt);
         // },
         logNote(note) {
-                console.log('working');
-                this.$emit('logNote', note);
-            },
+            console.log('working');
+            this.$emit('logNote', note);
+        },
         changeColor(color) {
             console.log('change color');
             this.noteTxt.style.backgroundColor = color
