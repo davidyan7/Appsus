@@ -14,7 +14,6 @@ export default {
     data() {
         return {
             note: {
-
                 type: "noteTodo",
                 info: {
                     label: null,
