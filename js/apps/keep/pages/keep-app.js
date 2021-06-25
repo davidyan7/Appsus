@@ -40,7 +40,8 @@ export default {
             filterBy: null,
             colors: ['#df4545', '#80df45', '#7c80f2', '#c865e1', '#2abaa6'],
             isScreenOpen: false,
-            currNote: null
+            currNote: null,
+            bgcColor: '#fff'
         }
     },
     methods: {

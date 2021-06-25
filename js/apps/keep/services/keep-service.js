@@ -80,6 +80,9 @@ var noteJson = [
                 { txt: "Do that", isDone: false },
                 { txt: "Do this", isDone: false }
             ]
+        },
+        style: {
+            backgroundColor: "#00d"
         }
     },
     {
