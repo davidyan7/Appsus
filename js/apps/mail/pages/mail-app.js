@@ -14,8 +14,10 @@ export default {
         <section class="mail-app-container">
             <header class="mail-header ">
                 <h1>Appsus Mail</h1>
-                <mail-search @search="setSearch"></mail-search>
-                <mail-filter class="mail-filter main-layout" @titleSort="titleSort" @dateSort="dateSort" @filter="setFilter" ></mail-filter>
+                <div class="filtering main-layout">
+                    <mail-search @search="setSearch"></mail-search>
+                    <mail-filter class="mail-filter " @notFilter="notFilter" @titleSort="titleSort" @dateSort="dateSort" @filter="setFilter" ></mail-filter>
+                </div>
                 </header>
                 <div class="mail-app-body main-layout ">
                         <nav  v-if="mails" class="mail-nav-bar">
@@ -30,6 +32,7 @@ export default {
                 <mail-compose :mail="mailToCompose" v-if="isCompose"  @saveMail="sendMail"></mail-compose>
                 <mail-details v-if="selectedMail"  :mail="selectedMail" ></mail-details>
             </div>
+           
         </section>
     `,
     data() {
@@ -147,6 +150,9 @@ export default {
             if (this.isCompose) return
             mailService.titleSort(this.mails)
 
+        },
+        notFilter() {
+            this.filterBy = null
         }
 
     },

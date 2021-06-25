@@ -1,7 +1,6 @@
 export default {
     template: `
-    <section class="book-search">
-        <label>Search:</label>
+    <section class="mail-search">
         <input v-model="searchBy" type="text" @input="search" placeholder="Search...">
     </section>
     `,

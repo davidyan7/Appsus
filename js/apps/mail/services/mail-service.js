@@ -78,7 +78,7 @@ function dateSort(mails) {
     mails.sort(function(a, b) {
         return a.sentAt - b.sentAt;
     });
-    return storageService.postMany(MAIL_KEY, mails)
+    return storageService.replaceEntities(MAIL_KEY, mails)
 }
 
 function titleSort(mails) {
@@ -93,7 +93,7 @@ function titleSort(mails) {
         }
         return 0;
     });
-    return storageService.postMany(MAIL_KEY, mails)
+    return storageService.replaceEntities(MAIL_KEY, mails)
 }
 
 

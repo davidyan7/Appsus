@@ -15,7 +15,7 @@ export default {
             <!-- <button @click.stop="readChosen(mail)" ></button> -->
         </span>
         </p>
-        <div v-if="isOpen"> 
+        <div class="open-mail" v-if="isOpen"> 
             <h2>{{mail.subject}}</h2>
             <h3><{{mail.to}}@gmail.com></h3>
             <p>{{mail.body}}</p>
