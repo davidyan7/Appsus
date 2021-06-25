@@ -1,6 +1,6 @@
 export default {
     template: `
-    <section class=add-type>
+    <section class=keep-add-type>
         <span>text</span>
         <span>image</span>
         <span>video</span>
