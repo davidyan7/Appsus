@@ -14,7 +14,6 @@ export default {
             <color-picker :colors=colors @colorChange="changeTextareaBgc" ></color-picker>
         </section> -->
         <section class="keep-add">
-            <!-- <div class="add-note-container" tabindex="0" @blur="logNote" :style="'background:' + bgcColor"> -->
             <div class="add-note-container" tabindex="0" @click="onClickField":style="'background:' + bgcColor">
                 <button class="pin-textarea">📌</button>
                 <p class="title" contentEditable placeholder="enter text" @input="onInput"  @click="onClickField" :class="isTitlePlaceholder"></p>

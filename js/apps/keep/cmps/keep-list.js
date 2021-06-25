@@ -1,30 +1,32 @@
 import keepPreview from "./keep-preview.js";
+import todoComp from "./todo-comp.js";
+import imgComp from "./img-comp.js";
 
 export default {
     props: ['notes'],
     components: {
         // keepDetails
-        keepPreview
+        keepPreview,
+        todoComp,
+        imgComp
     },
     template: `
     <section class="keep-list" >
-    <h1>Pinned</h1>
-    <div >
-    <ul class="pinned">
-        <li v-if="note.isPinned" v-for="note in notes">
+        <h1>Pinned</h1>
+    <div class="pinned">
+        <section v-if="note.isPinned" v-for="note in notes">
             <keep-preview  :note="note" @pinned="pinned" @click.native="log(note.id)"></keep-preview>
-        </li>
-    </ul>
+        </section>
     </div>
-    <h1>Not Pinned</h1>
-    <hr/>
-    <div >
-        <ul class="others">
-            <li v-if="!note.isPinned" v-for="note in notes">
+        <h1>Others</h1>
+        <hr/>
+    <div class="others">
+            <section class="note-item" v-if="!note.isPinned" v-for="note in notes">
                 <keep-preview :note="note" @pinned="pinned" @click.native="log(note.id)" ></keep-preview>
-            </li>
-        </ul>
-        </div>
+            </section>
+        <todo-comp></todo-comp>
+        <img-comp></img-comp>
+    </div>
     </section>
     `,
     created() {
