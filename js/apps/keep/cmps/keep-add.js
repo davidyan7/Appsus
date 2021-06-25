@@ -24,13 +24,13 @@ export default {
         </section> -->
         <section class="keep-add">
             <!-- <div class="add-note-container" tabindex="0" @click="onClickField":style="'background:' + bgcColor"> -->
-            <div class="add-note-container" tabindex="0" @click="onClickField">
+            <div class="add-note-container" tabindex="0" @click="onClickField" :style="bgcColor">
                 <!-- <button class="pin-textarea">📌</button>
                 <p class="title" contentEditable placeholder="enter text" @input="onInput"  @click="onClickField" :class="isTitlePlaceholder"></p>
                 <div class="content" contentEditable="true" data-placeholder="hi" @input="onInput" @click="onClickField" :class="isContentPlaceholder"></div> -->
-                <component :is="cmpType" @logNote="logNote"></component>
+                <component :is="cmpType" @logNote="logNote" :color="currColor"></component>
                 <color-picker :colors=colors @colorChange="changeColor" ></color-picker>
-                <keep-add-type @typechange="changeType"></keep-add-type>
+                <keep-add-type class="keep-add-type" @typechange="changeType"></keep-add-type>
             </div>
         </section>
     `,
@@ -53,7 +53,8 @@ export default {
             note: null,
             isTitleClicked: false,
             isContentClicked: false,
-            cmpType: 'addTxt'
+            cmpType: 'addTxt',
+            currColor: '#fff'
         }
     },
     methods: {
@@ -68,7 +69,8 @@ export default {
         },
         changeColor(color) {
             console.log('change color');
-            this.noteTxt.style.backgroundColor = color
+            this.currColor = color
+            // this.noteTxt.style.backgroundColor = color
         },
         onInput(ev) {
             // console.log(ev.target.className);
@@ -95,9 +97,11 @@ export default {
 
     },
     computed: {
-        // bgcColor() {
-        //     return this.noteTxt.style.backgroundColor
-        // },
+
+        bgcColor() {
+            return `background-color: ${this.currColor};`
+            // return this.noteTxt.style.backgroundColor
+        },
         // isTitlePlaceholder() {
         //     var isClicked = this.isTitleClicked
         //     return { clear: isClicked}

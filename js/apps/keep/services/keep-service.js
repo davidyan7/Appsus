@@ -25,12 +25,34 @@ var noteJson = [
         }
     },
     {
+        id: 'as2123j2a23',
+        type: "noteVideo",
+        info: {
+            url: "https://www.youtube.com/embed/wy6qazFc2FQ",
+            title: "Harry Mack"
+        },
+        style: {
+            backgroundColor: "#fff"
+        }
+    },
+    {
         id: 'asd123jasda',
         type: "noteTxt",
         isPinned: false,
         info: {
             title: 'makore',
             txt: "Fullstack Me Baby!"
+        },
+        style: {
+            backgroundColor: "#fff"
+        }
+    },
+    {
+        id: 'as123sj2a',
+        type: "noteImg",
+        info: {
+            url: "https://www.calmsage.com/wp-content/uploads/2020/05/what-is-4me-time-and-10-ways-to-enjoy-your-me-time2-.jpg",
+            title: "Me playing Mi"
         },
         style: {
             backgroundColor: "#fff"
@@ -61,17 +83,6 @@ var noteJson = [
         }
     },
     {
-        id: 'as123sj2a',
-        type: "noteImg",
-        info: {
-            url: "https://www.calmsage.com/wp-content/uploads/2020/05/what-is-4me-time-and-10-ways-to-enjoy-your-me-time2-.jpg",
-            title: "Me playing Mi"
-        },
-        style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {
         id: 'as123j2a23',
         type: "noteTodo",
         info: {
@@ -82,20 +93,9 @@ var noteJson = [
             ]
         },
         style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {
-        id: 'as2123j2a23',
-        type: "noteVideo",
-        info: {
-            url: "https://www.youtube.com/embed/tgbNymZ7vqY",
-            title: "Me playing Mi"
-        },
-        style: {
             backgroundColor: "#fff"
         }
-    }
+    },
 ];
 
 createNotes()

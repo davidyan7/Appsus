@@ -1,15 +1,15 @@
 export default {
-    // props: ['note'],
-    components: {},
+    props: ['color'],
     template: `
-        <section class="add-video">
-                <input type="text" v-model="note.info.title" @input="logNote" placeholder="Title">
-                <textarea type="text" v-model="note.info.txt" @input="logNote" placeholder="Take a note"></textarea>
-            </div>
-        </section>
-    `,
-    created() {
-
+    <section class="add-video">
+            <input class="color-effect" type="text" v-model="urlToEdit" @input="editUrl" placeholder="Enter video url" :style="bgcColor">
+            <input class="color-effect" type="text" v-model="note.info.title" @input="logNote" placeholder="Enter description" :style="bgcColor">
+    </section>
+`,
+    watch: {
+        color: function (val) {
+            this.note.style.backgroundColor = this.color = val
+        }
     },
     data() {
         return {
@@ -23,13 +23,24 @@ export default {
                     backgroundColor: "#fff"
                 }
             },
+            urlToEdit: null
         }
     },
     methods: {
         logNote() {
-            console.log(this.note.info.title);
-            console.log(this.note.info.txt);
             this.$emit('logNote', this.note)
+        },
+        editUrl() {
+            const embeded = this.urlToEdit.split('=')
+            const fixedUrl = `https://www.youtube.com/embed/${embeded[1]}`
+            this.note.info.url = fixedUrl
+            console.log(fixedUrl);
+            this.logNote()
         }
+    },
+    computed: {
+        bgcColor() {
+            return `background-color: ${this.note.style.backgroundColor};`
+        },
     }
 }

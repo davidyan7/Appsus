@@ -56,8 +56,8 @@ export default {
             console.log(note);
         },
         addNote() {
+            if (!this.currNote) return
             console.log('adding note...');
-            // console.log(note);
             keepService.addNewNote(this.currNote)
                 .then(() => this.loadNotes())
                 .catch(err => console.log('error', err))

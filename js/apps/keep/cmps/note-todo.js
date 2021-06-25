@@ -26,7 +26,6 @@ export default {
     </section>
     `,
     created() {
-        console.log(this.note);
     },
     data() {
         return {

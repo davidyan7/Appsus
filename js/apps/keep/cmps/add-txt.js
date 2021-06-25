@@ -1,46 +1,49 @@
 export default {
-    // props: ['note'],
+    props: ['color'],
     components: {
     },
     template: `
-        <!-- <section class="keep-add">
-            <button class="pin-textarea">📌</button>
-            <textarea id="textArea" name="text-area" v-model="noteTxt.info.txt" placeholder="Take a note" @blur="logNote" :style="'background:' + bgcColor">    
-            </textarea>
-            <color-picker :colors=colors @colorChange="changeTextareaBgc" ></color-picker>
-        </section> -->
         <section class="add-txt">
-            <!-- <div class="add-note-container" tabindex="0" :style="'background:' + bgcColor"> -->
-            
-                <!-- <button class="pin-textarea">📌</button> -->
-                <input type="text" v-model="note.info.title" @input="logNote" placeholder="Title">
-                <textarea type="text" v-model="note.info.txt" @input="logNote" placeholder="Take a note"></textarea>
+                <input class="color-effect" type="title" v-model="note.info.title" @input="logNote" placeholder="Title" :style="bgcColor">
+                <textarea class="color-effect" type="text" v-model="note.info.txt" @input="logNote" placeholder="Take a note" :style="bgcColor"></textarea>
             </div>
         </section>
     `,
     created() {
-
+        console.log(this.color);
+        this.note.backgroundColor = this.color
     },
-    data() {
-        return {
-            note: {
-                type: "noteTxt",
-                isPinned: false,
-                info: {
-                    title: null,
-                    txt: null
+    watch: {
+            color: function (val) {
+                console.log(val);
+                this.note.style.backgroundColor = this.color = val
+            }
+        },
+        data() {
+            return {
+                note: {
+                    type: "noteTxt",
+                    isPinned: false,
+                    info: {
+                        title: null,
+                        txt: null
+                    },
+                    style: {
+                        backgroundColor: '#fff'
+                    }
                 },
-                style: {
-                    backgroundColor: null
-                }
+            }
+        },
+        methods: {
+            logNote() {
+                console.log(this.note.info.title);
+                console.log(this.note.info.txt);
+                this.$emit('logNote', this.note)
+            }
+        },
+        computed: {
+            bgcColor() {
+                return `background-color: ${this.note.style.backgroundColor};`
             },
         }
-    },
-    methods: {
-        logNote() {
-            console.log(this.note.info.title);
-            console.log(this.note.info.txt);
-            this.$emit('logNote', this.note)
-        }
     }
-}
