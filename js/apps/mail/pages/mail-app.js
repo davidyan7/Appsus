@@ -29,7 +29,7 @@ export default {
                                 <button @click="setCompose" class="compose-btn"><h3>   Compose </h3></button>
                             </div>
                     <button @click="setInbox" class="basic-btn inbox-btn"><h3>Inbox</h3> ({{unReadMails}})</button>
-                    <button @click="filterstarred" class="basic-btn starred-btn"><h3>Starred</h3></button>
+                    <button @click="filterstarred" class="basic-btn starred-btn"><h3>Starred</h3>({{starsMails}})</button>
                 </nav>
                 <div v-if="isInbox">
                     <mail-list v-if="mails" @showDetails="showDetails" @replayMail="replayMail" @mailStarred="mailStarred" @readChosen="readChosen" @readMail="readMail" :mails="mailsToShow" @remove="removeMail" />
@@ -191,11 +191,18 @@ export default {
 
         },
         unReadMails() {
-            var sumUnread = 0
+            var sum = 0
             this.mails.forEach(mail => {
-                if (!mail.isRead) sumUnread++
+                if (!mail.isRead) sum++
             })
-            return sumUnread
+            return sum
+        },
+        starsMails() {
+            var sum = 0
+            this.mails.forEach(mail => {
+                if (mail.isStarred) sum++
+            })
+            return sum
         }
     },
     components: {
