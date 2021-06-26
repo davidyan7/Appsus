@@ -8,9 +8,6 @@ export default {
             <option value="date">Date</option>
             <option value="title">Title</option>
         </select>
-       <!-- <button class="basic-btn" @click="filter">{{ReadUnread}}</button>
-       <button class="basic-btn" @click="dateSort">Date</button>
-       <button class="basic-btn" @click="titleSort">Title</button> -->
     </section>
     `,
     data() {
