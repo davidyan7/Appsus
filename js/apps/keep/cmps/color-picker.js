@@ -4,10 +4,10 @@ export default {
         <section class="color-picker">
 
         <div v-if="isShown" class="colors-container" >
-        <!-- <transition-group name="fade"> -->
+        <!-- <transition name="fade"> -->
             <span class="color" v-for="(color, idx) in colors" :style="'background:' + color" @click="logColor(color)" :key="idx">
             </span>
-        <!-- </transition-group> -->
+        <!-- </transition> -->
         </div>
                 <span class=colors-icon @click="showColors"></span>
         </section>

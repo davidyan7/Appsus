@@ -1,5 +1,11 @@
 @import "./apps/keep/keep-main.css";
 @import "./apps/mail/mail-main.css";
+
+@font-face {
+    src: url(../../../fonts/fa-solid-900.ttf);
+    font-family: awesome;
+}
+
 * {
     box-sizing: border-box;
 }

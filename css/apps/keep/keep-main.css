@@ -1,6 +1,7 @@
-@font-face {
-    src: url(../../../fonts/fa-solid-900.ttf);
-    font-family: awesome;
+
+
+:root{
+    --icon-color: rgb(110, 108, 108);
 }
 
 * {
@@ -321,7 +322,7 @@ h3 {
 
 .colors-icon:before {
     font-size: 30px;
-    color: rgb(117, 107, 107);
+    color: var(--icon-color);
     content: "\f53f"
 }
 
@@ -378,6 +379,7 @@ img {
     position: absolute;
     bottom: 3px;
     left: 11px;
+    color: var(--icon-color);
 }
 
 .keep-add-type .addTodo:before {
