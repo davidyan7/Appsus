@@ -4,7 +4,7 @@ export default {
         <span class="addTxt" @click="typechange">text</span>
         <span class="addImg" @click="typechange">image</span>
         <span class="addVideo" @click="typechange">video</span>
-        <span class="addTodo" @click="typechange">todo</span>
+        <span class="addTodo" @click="typechange"></span>
         <span class="addAudio" @click="typechange">audio</span>
         <span class="addMap" @click="typechange">Map</span>
     </section>

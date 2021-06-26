@@ -1,3 +1,8 @@
+@font-face {
+    src: url(../../../fonts/fa-solid-900.ttf);
+    font-family: awesome;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -111,7 +116,7 @@ h3 {
     height: 100%;
     /* z-index: 2; */
     /* border: 1px solid; */
-    padding: 30px 10px;
+    padding: 40px 10px;
     box-shadow: 1px 2px 10px 1px rgba(0,0,0,0.44);
     transition: background-color 0.6s;
 }
@@ -247,17 +252,65 @@ padding-top: 30px;
     position: absolute;
     bottom: 3px;
     right: 3px;
-    display: grid;
-    margin: 15 auto;
-    grid-template-columns: repeat(5, 25px);
-    gap: 2px;
+    /* display: grid; */
+    /* margin: 15 auto; */
+    /* grid-template-columns: repeat(5, 25px); */
+    /* gap: 2px; */
 }
 
 .color {
+    display: inline-block;
     height: 25px;
+    width: 25px;
     border-radius: 50%;
     cursor: pointer;
     border: 1px solid white;
+}
+
+.colors-container {
+    background-color: rgb(34, 30, 30);
+    display: grid;
+        grid-template-columns: repeat(4, 25px);
+    position: relative;
+    /* flex-direction: row; */
+    /* right: 55px; */
+    top: 90px;
+    gap: 2px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.8)
+}
+
+/* .colors-container.closed {
+    background-color: rgb(34, 30, 30);
+    display: grid;
+        grid-template-columns: repeat(4, 25px);
+    position: relative;
+
+    top: 115px;
+    gap: 2px;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.8)
+} */
+
+.colors-container .color{
+    transition: all 0.4s
+}
+
+
+.colors-icon{
+    position:absolute;
+    bottom: 3px;
+    right: 3px;
+    cursor: pointer;
+    font-family: awesome;
+}
+
+.colors-icon:before {
+    font-size: 30px;
+    color: rgb(117, 107, 107);
+    content: "\f53f"
 }
 
 /* .keep-preview textarea:hover{
@@ -309,9 +362,18 @@ img {
     left: 11px;
 }
 
+.keep-add-type .addTodo:before {
+font-family: awesome;
+font-size:30px;
+content: '\f0ca'
+/* f0ca */
+}
+
 .keep-add-type>* {
     cursor: pointer;
 }
+
+.keep-add-type
 
 /* add-img */
 
@@ -365,3 +427,12 @@ img {
 .color-effect {
     transition: background-color 0.6s;
 }
+
+/* vue-animation */
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .2s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }

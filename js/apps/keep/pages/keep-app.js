@@ -38,7 +38,7 @@ export default {
             notes: null,
             clickedNote: null,
             filterBy: null,
-            colors: ['#df4545', '#80df45', '#7c80f2', '#c865e1', '#2abaa6'],
+            colors: ['#fff', '#80df45', '#7c80f2', '#c865e1', '#2abaa6', '#a6e1d9', '#aec8dd', '#d9df9a', '#ba1f6a87', '#ff9b08b8', '#9371cfbf', '#4fbe54c9'],
             isScreenOpen: false,
             currNote: null,
             bgcColor: '#fff'
