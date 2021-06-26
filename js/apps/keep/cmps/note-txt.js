@@ -7,15 +7,20 @@ export default {
     },
     template: `
     <section class="note-item txt" :style="'background-color:'+bgc">
-        <button class="keep-note-pin" @click.stop="pinned(note)">📌</button>
+        <span class="keep-note-pin" @click.stop="pinned(note)"></span>        
+
         <div class="note-container">
             <div class="text-content">
                 <h3 class="title" contenteditable @blur="done">{{this.note.info.title}}</h3>
                 <p class="txt" contenteditable @blur="done">{{this.note.info.txt}}</p>
             </div>
         </div>    
-            <button class="delete-note" @click="deleteNote">Delete</button>
-            <color-picker class="color-picker-in-comp" :colors="colors" @colorChange="changeColor"></color-picker>
+        <div class="buttons-container">
+            <span class="delete-note" @click="deleteNote"></span>
+        </div>
+        <div class="color-picker-container">
+            <color-picker :colors="colors" @colorChange="changeColor"></color-picker>
+        </div>
     </section>
     `,
     created() {

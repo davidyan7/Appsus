@@ -6,19 +6,21 @@ export default {
     },
     template: `
     <section class="note-item video" :style="'background-color:'+bgc">
-        <button class="keep-note-pin" @click.stop="pinned(note)">📌</button>
+    <span class="keep-note-pin" @click.stop="pinned(note)"></span>
         <div class="note-container">
-        <!-- <iframe width="100%"  src="https://www.youtube.com/watch?v=wq59OYh1mtc">
-        </iframe> -->
         <iframe width="100%" height="220" :src="note.info.url">
         </iframe>
 
             <div class="text-content">
                 <h3 class="title" contenteditable @blur="done">{{this.note.info.title}}</h3>
             </div>
-        </div>    
-            <button class="delete-note" @click="deleteNote">Delete</button>
-            <color-picker class="color-picker-in-comp" :colors="colors" @colorChange="changeColor"></color-picker>
+        </div>   
+        <div class="buttons-container"> 
+            <span class="delete-note" @click="deleteNote"></span>
+        </div>
+        <div class="color-picker-container">
+            <color-picker :colors="colors" @colorChange="changeColor"></color-picker>
+        </div>
     </section>
     `,
     data() {

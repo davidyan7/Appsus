@@ -6,7 +6,7 @@ export default {
     },
     template: `
     <section class="note-item todo" :style="'background-color:'+bgc">
-        <button class="keep-note-pin" @click.stop="pinned(note)">📌</button>
+    <span class="keep-note-pin" @click.stop="pinned(note)"></span>
         
         <div class="note-container">
 
@@ -22,8 +22,12 @@ export default {
             </div>
 
         </div>
-        <button class="delete-note" @click="deleteNote">Delete</button>
-        <color-picker class="color-picker-in-comp" :colors="colors" @colorChange="changeColor"></color-picker>
+        <span class="delete-note" @click="deleteNote"></span>
+            <div class="buttons-container">
+        </div>
+        <div class="color-picker-container">
+            <color-picker :colors="colors" @colorChange="changeColor"></color-picker>
+        </div>
     </section>
     `,
     created() {

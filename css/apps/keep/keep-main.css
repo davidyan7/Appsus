@@ -137,10 +137,23 @@ h3 {
 }
 
 .note-item .keep-note-pin {
+    /* width: 20px; */
     position: absolute;
     top: 3px;
     right: 3px;
 }
+
+.note-item .keep-note-pin:before {
+    font-family: awesome;
+    font-size: 20px;
+    content:"\f08d";
+    color: var(--icon-color);
+    
+    /* position: absolute;
+    top: 3px;
+    right: 3px; */
+}
+
 
 .keep-add textarea {
     resize: none;
@@ -210,6 +223,35 @@ h3 {
     padding: 0 8px
 }
 
+.color-picker-container {
+    position: absolute;
+    bottom:0px;
+    left: 40px;
+}
+
+.color-picker-container .colors-container {
+    position: relative;
+    left:80px;
+}
+
+.note-item .buttons-container {
+    opacity: 0;
+    visibility :hidden;
+    transition: all 0.4s;
+}
+
+.note-item:hover .buttons-container {
+    opacity: 1;
+    visibility:visible
+
+}
+
+.note-item .delete-note:before{
+    color: var(--icon-color);
+    font-family: awesome;
+    font-size: 30px;
+    content: "\f1f8"
+}
 
 /* note-txt */
 
@@ -229,6 +271,7 @@ h3 {
     transition: box-shadow 0.1s;
     margin-bottom: 10px;
     margin-top: 10px;
+    transition: background-color 0.6s
 }
 
 .note-item .delete-note {
@@ -257,6 +300,11 @@ h3 {
     padding-top: 30px;
 }
 
+/* note-map */
+.note-item.map {
+    padding: 30px 0 40px;
+
+}
 
 /* Color-picker */
 
@@ -284,8 +332,6 @@ h3 {
     display: grid;
     grid-template-columns: repeat(4, 25px);
     position: relative;
-    /* flex-direction: row; */
-    /* right: 55px; */
     top: 90px;
     gap: 2px;
     padding: 5px;
@@ -337,7 +383,7 @@ h3 {
 /* note-img */
 
 .note-item.img {
-    padding: 30px 0
+    padding: 30px 0 40px;
     /* height: 300px; */
 }
 
@@ -346,11 +392,14 @@ img {
 }
 
 .note-item.video {
-    padding: 30px 0
+    padding: 30px 0 40px
 }
 
 
 /* note-todo */
+.note-item.todo {
+    padding: 30px 0 40px;
+}
 
 .todo-line {
     display: flex;
@@ -367,6 +416,10 @@ img {
 
 
 /* note-audio */
+
+.note-item.audio {
+    padding: 30px 0 40px;
+}
 
 .audio-container audio {
     width: 100%;
