@@ -17,7 +17,7 @@ export default {
         <header class="keep-header">
             <div class="keep-logo">
                 <h1>Keep</h1>
-                <img class="header-logo" src="img/google-keep-2.png" alt="">
+                <img class="header-logo" src="img/keep.png" alt="">
             </div>
             <keep-filter class="keep-filter" @setOption="setOption" @filter="setFilter"></keep-filter>
         </header>

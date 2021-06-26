@@ -16,14 +16,6 @@ h3 {
     margin: 0;
 }
 
-<<<<<<< HEAD
-=======
-body {
-    margin: 10;
-}
-
-
->>>>>>> efe9224efa4999b331ff9918c41df23caebe2bf9
 /* keep-header (temporary) */
 
 .keep-header {
@@ -523,9 +515,9 @@ img {
     border: none;
     background-color: white;
 }
-.keep-add-type .addTxt-btn:focus {
+/* .keep-add-type .addTxt-btn:focus {
     background-color: rgb(141, 66, 66);
-}
+} */
 
 .keep-add-type>* {
     cursor: pointer;
