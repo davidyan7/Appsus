@@ -1,8 +1,8 @@
 export default {
     template: `
     <section class="mail-filter">
-        <select v-model="filterBy" value="all" @change="setOption" >
-            <option  value="all">All</option>
+        <select v-model="filterBy" @change="setOption" >
+            <option selected value="all">All</option>
             <option value="read">Read</option>
             <option value="unread">Unread</option>
             <option value="date">Date</option>
@@ -16,7 +16,9 @@ export default {
             isRead: true
         };
     },
-
+    created() {
+        this.filterBy = 'All'
+    },
     computed: {
         ReadUnread() {
             if (this.isRead) return 'READ/unread'
