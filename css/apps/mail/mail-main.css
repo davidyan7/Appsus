@@ -11,7 +11,7 @@ h1 {
 /* Layout */
 
 .main-layout {
-    max-width: 1044px;
+    max-width: 1150px;
     margin: 0 auto;
     padding-right: 0;
     padding-left: 0;
@@ -86,7 +86,7 @@ h1 {
     background-color: unset;
     border: hidden;
     cursor: pointer;
-    width: 200px;
+    /* width: 200px; */
     border-radius: 20px;
     height: 40px;
     cursor: pointer;
@@ -116,6 +116,10 @@ h1 {
     font-size: 15px;
     content: '\f005';
     color: var(--icon-color);
+}
+
+.not-starred {
+    font-size: 17px;
 }
 
 .compose-btn {
@@ -343,8 +347,9 @@ h1 {
     .mail-nav-bar {
         display: flex;
         flex-direction: row;
+        justify-content: flex-start;
         width: 100%;
-        justify-content: space-evenly;
+        /* justify-content: space-evenly; */
         grid-row: 1/2;
         margin-top: 5px;
     }
@@ -366,5 +371,15 @@ h1 {
     }
     .send-btn {
         margin-left: 0;
+    }
+    .basic-btn {
+        margin: 6px;
+        background-color: unset;
+        border: hidden;
+        cursor: pointer;
+        /* width: 200px; */
+        border-radius: 20px;
+        height: 40px;
+        cursor: pointer;
     }
 }
