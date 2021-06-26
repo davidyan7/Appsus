@@ -2,8 +2,7 @@
 
 export default {
     props: ['note'],
-    components: {
-    },
+    components: {},
     template: `
     <section class="note-item img" >
         <button class="keep-note-pin" @click.stop="pinned(note)">📌</button>
@@ -21,12 +20,10 @@ export default {
         <button class="delete-note" @click="deleteNote">Delete</button>
     </section>
     `,
-    created() {
-    },
+    created() {},
 
     data() {
-        return {
-        }
+        return {}
     },
     methods: {
         pinned(note) {

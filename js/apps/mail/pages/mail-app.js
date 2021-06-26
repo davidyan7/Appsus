@@ -30,6 +30,7 @@ export default {
                 </div>
                 <mail-compose :mail="mailToCompose" v-if="isCompose"  @saveMail="sendMail"></mail-compose>
                 <mail-details v-if="selectedMail"  :mail="selectedMail" ></mail-details>
+                <img src="https://www.google.co.il/maps/@31.2298655,34.7801791,15z" alt="">
             </div>
         </section>
     `,

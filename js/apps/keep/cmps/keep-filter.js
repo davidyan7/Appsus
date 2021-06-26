@@ -12,11 +12,11 @@ export default {
     </form>
     <select v-model="filterBy.type" @change="setOption" >
         <option value="all">All</option>
-        <option value="text">Text</option>
-        <option value="img">Img</option>
-        <option value="video">Video</option>
-        <option value="todo">Todo</option>
-        <option value="audio">Audio</option>
+        <option value="noteTxt">Text</option>
+        <option value="noteImg">Img</option>
+        <option value="noteVideo">Video</option>
+        <option value="noteTodo">Todo</option>
+        <option value="noteAudio">Audio</option>
        </select>
 </section>
     `,
@@ -38,7 +38,7 @@ export default {
             // this.$emit('filter', this.filterBy);
         },
         setOption() {
-            console.log('sadas');
+            this.$emit('setOption', {...this.filterBy });
         }
     },
     computed: {

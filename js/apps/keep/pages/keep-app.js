@@ -16,7 +16,7 @@ export default {
     <section class="keep-app">
         <header class="keep-header">
             <h1>Appsus Keep</h1>
-            <keep-filter @filter="setFilter"></keep-filter>
+            <keep-filter @setOption="setOption" @filter="setFilter"></keep-filter>
         </header>
         
         <keep-add @logNote="logNote" @openScreen="openScreen" :colors="colors"></keep-add>
@@ -30,7 +30,7 @@ export default {
     `,
     created() {
         this.loadNotes()
-        // eventBus.$on('pinned', this.pinned())
+            // eventBus.$on('pinned', this.pinned())
     },
 
     data() {
@@ -52,7 +52,7 @@ export default {
         },
         logNote(note) {
             this.currNote = note
-            
+
             console.log(note);
         },
         addNote() {
@@ -65,7 +65,7 @@ export default {
         editNote(note) {
             keepService.updateNote(note)
                 .then(() => this.loadNotes())
-                console.log('edit');
+            console.log('edit');
         },
         noteClicked(id) {
             console.log('getting note...', id);
@@ -91,6 +91,9 @@ export default {
             console.log(filterBy);
             this.filterBy = filterBy;
         },
+        setOption(filterBy) {
+            this.filterBy = filterBy;
+        },
         closeScreen() {
             this.isScreenOpen = false
             console.log('closed');
@@ -103,25 +106,33 @@ export default {
     computed: {
         notesToShow() {
             if (!this.filterBy) return this.notes
-            // var searchMin = this.filterBy.fromPrice
-            // var searchMax = this.filterBy.toPrice
+                // var searchMin = this.filterBy.fromPrice
+                // var searchMax = this.filterBy.toPrice
             const searchStr = this.filterBy.title.toLowerCase();
             // if (searchMin === '') searchMin = 0
             // if (searchMax === '') searchMax = Infinity
             // var notesToShow;
+            if (this.filterBy.type) {
+                if (this.filterBy.type === 'all') return this.notes
+                var notesToShow = this.notes.filter(note => note.type === this.filterBy.type)
+                return notesToShow
+            }
 
 
-            var notesToShow = this.notes.filter(note => {
-                if (note.info.txt && note.info.txt !== '') {
-                    return note.info.txt.toLowerCase().includes(searchStr)
-                }
-                if (note.info.title && note.info.title !== '') {
-                    return note.info.title.toLowerCase().includes(searchStr)
-                }
-                if (note.info.label && note.info.label !== '') {
-                    return note.info.label.toLowerCase().includes(searchStr)
-                }
-            })
+
+            if (this.filterBy.title) {
+                var notesToShow = this.notes.filter(note => {
+                    if (note.info.txt && note.info.txt !== '') {
+                        return note.info.txt.toLowerCase().includes(searchStr)
+                    }
+                    if (note.info.title && note.info.title !== '') {
+                        return note.info.title.toLowerCase().includes(searchStr)
+                    }
+                    if (note.info.label && note.info.label !== '') {
+                        return note.info.label.toLowerCase().includes(searchStr)
+                    }
+                })
+            }
             return notesToShow
         },
         isOpen() {

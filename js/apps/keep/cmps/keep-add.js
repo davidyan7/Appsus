@@ -4,6 +4,7 @@ import addImg from "./add-img.js";
 import addVideo from "./add-video.js";
 import addTodo from "./add-todo.js";
 import addAudio from "./add-audio.js";
+import addMap from "./add-map.js";
 import keepAddType from "./keep-add-type.js";
 
 export default {
@@ -15,7 +16,8 @@ export default {
         addImg,
         addVideo,
         addTodo,
-        addAudio
+        addAudio,
+        addMap
     },
     template: `
         <!-- <section class="keep-add">

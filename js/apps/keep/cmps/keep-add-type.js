@@ -6,6 +6,7 @@ export default {
         <span class="addVideo" @click="typechange">video</span>
         <span class="addTodo" @click="typechange">todo</span>
         <span class="addAudio" @click="typechange">audio</span>
+        <span class="addMap" @click="typechange">Map</span>
     </section>
     `,
     methods: {

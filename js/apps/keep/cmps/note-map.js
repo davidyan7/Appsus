@@ -1,16 +1,16 @@
 // import { eventBus } from "../../../services/event-bus-service.js";
+import { mapService } from "../services/map.service.js";
 
 export default {
     props: ['note'],
     components: {},
     template: `
-    <section class="note-item audio" >
+    <section class="note-item map" >
         <button class="keep-note-pin" @click.stop="pinned(note)">📌</button>
-        <div class="note-container">
-            <ul>
-                <div class="audio-container">
-                    <img :src="note.info.url" alt="">
-                    <video controls="" name="media"><source :src="note.info.url"  type="audio/mpeg">asdas</video>
+        <div id="map" class="note-container">
+            <ul >
+                <div  class="map-container">
+                    
                 </div>
             </ul>
 
@@ -21,7 +21,9 @@ export default {
         <button class="delete-note" @click="deleteNote">Delete</button>
     </section>
     `,
-    created() {},
+    created() {
+        mapService.initMap()
+    },
 
     data() {
         return {}
