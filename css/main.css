@@ -55,12 +55,19 @@ body {
 
 /* HOME-PAGE */
 
-.home-page img {
+/* .home-page img {
     height: 100vh;
-    /* background-image: url('../../img/bg/bg-img5.jpg'); */
+    background-image: url('../../img/bg/bg-img5.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+} */
+
+.home-page {
+    background-image: url('../img/cool-background.png');
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
+    /* object-fit:cover */
 }
 
 .home-page {
