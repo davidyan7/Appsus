@@ -7,6 +7,7 @@
     box-sizing: border-box;
 }
 
+
 /* base */
 
 p {
@@ -17,6 +18,7 @@ h3 {
     margin: 0;
 }
 
+
 /* keep-header (temporary) */
 
 .keep-header {
@@ -25,6 +27,7 @@ h3 {
     background-color: rgb(255, 178, 71);
     margin-bottom: 10px;
 }
+
 
 /* keep-app */
 
@@ -61,15 +64,19 @@ h3 {
     cursor: pointer;
 }
 
+
 /* .keep-edit .edit-remove-btn {
     position: absolute;
     bottom: 3px;
     right: 3px;
     cursor: pointer; */
 
+
 /* z-index: 2; */
 
+
 /* } */
+
 
 /* keep-add */
 
@@ -117,7 +124,7 @@ h3 {
     /* z-index: 2; */
     /* border: 1px solid; */
     padding: 40px 10px;
-    box-shadow: 1px 2px 10px 1px rgba(0,0,0,0.44);
+    box-shadow: 1px 2px 10px 1px rgba(0, 0, 0, 0.44);
     transition: background-color 0.6s;
 }
 
@@ -151,6 +158,7 @@ h3 {
     right: 3px;
 }
 
+
 /* keep-list */
 
 .keep-list .pinned {
@@ -177,11 +185,13 @@ h3 {
     height: fit-content; */
 }
 
+
 /* .keep-list ul {
     list-style: none;
     margin: 0;
     padding: 0;
 } */
+
 
 /* notes */
 
@@ -199,6 +209,7 @@ h3 {
 .note-item .text-content {
     padding: 0 8px
 }
+
 
 /* note-txt */
 
@@ -242,9 +253,10 @@ h3 {
     /* transition: all 0.4 ease-in-out; */
 }
 
-.note-item.txt{
-padding-top: 30px;
+.note-item.txt {
+    padding-top: 30px;
 }
+
 
 /* Color-picker */
 
@@ -270,7 +282,7 @@ padding-top: 30px;
 .colors-container {
     background-color: rgb(34, 30, 30);
     display: grid;
-        grid-template-columns: repeat(4, 25px);
+    grid-template-columns: repeat(4, 25px);
     position: relative;
     /* flex-direction: row; */
     /* right: 55px; */
@@ -278,8 +290,9 @@ padding-top: 30px;
     gap: 2px;
     padding: 5px;
     border-radius: 10px;
-    box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.8)
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.8)
 }
+
 
 /* .colors-container.closed {
     background-color: rgb(34, 30, 30);
@@ -294,13 +307,12 @@ padding-top: 30px;
     box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.8)
 } */
 
-.colors-container .color{
+.colors-container .color {
     transition: all 0.4s
 }
 
-
-.colors-icon{
-    position:absolute;
+.colors-icon {
+    position: absolute;
     bottom: 3px;
     right: 3px;
     cursor: pointer;
@@ -313,11 +325,13 @@ padding-top: 30px;
     content: "\f53f"
 }
 
+
 /* .keep-preview textarea:hover{
     box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.8);
     transition: all 0.4;
 
 } */
+
 
 /* note-img */
 
@@ -334,22 +348,26 @@ img {
     padding: 30px 0
 }
 
+
 /* note-todo */
 
 .todo-line {
     display: flex;
     justify-content: space-between;
 }
-.todo-line p{
+
+.todo-line p {
     width: 85%;
 }
 
-.todo-line p.crossed{
+.todo-line p.crossed {
     text-decoration: line-through;
 }
 
+
 /* note-audio */
-.audio-container audio{
+
+.audio-container audio {
     width: 100%;
 }
 
@@ -363,10 +381,41 @@ img {
 }
 
 .keep-add-type .addTodo:before {
-font-family: awesome;
-font-size:30px;
-content: '\f0ca'
-/* f0ca */
+    font-family: awesome;
+    font-size: 30px;
+    content: '\f022'
+}
+
+.keep-add-type .addAudio:before {
+    font-family: awesome;
+    font-size: 30px;
+    content: '\f144'
+}
+
+.keep-add-type .addVideo:before {
+    font-family: awesome;
+    font-size: 30px;
+    content: '\f03d'
+}
+
+.keep-add-type .addMap:before {
+    font-family: awesome;
+    font-size: 30px;
+    content: '\f5a0'
+}
+
+.keep-add-type .addImg:before {
+    font-family: awesome;
+    font-size: 30px;
+    content: '\f030'
+    /* f0ca */
+}
+
+.keep-add-type .addTxt:before {
+    font-family: awesome;
+    font-size: 30px;
+    content: '\f075'
+    /* f0ca */
 }
 
 .keep-add-type>* {
@@ -374,7 +423,6 @@ content: '\f0ca'
 }
 
 .keep-add-type
-
 /* add-img */
 
 .add-img {
@@ -382,13 +430,15 @@ content: '\f0ca'
     flex-direction: column
 }
 
-.add-img >* {
+.add-img>* {
     border-radius: 6px;
     padding: 5px;
 }
+
 .add-img input:first-child {
     margin-bottom: 4px;
-} 
+}
+
 
 /* add video */
 
@@ -397,17 +447,19 @@ content: '\f0ca'
     flex-direction: column
 }
 
-.add-video >* {
+.add-video>* {
     border-radius: 6px;
     padding: 5px;
 }
+
 .add-video input:first-child {
     margin-bottom: 4px;
-} 
+}
+
 
 /* add-todo */
 
-.add-todo ul{
+.add-todo ul {
     padding: 0;
 }
 
@@ -415,12 +467,14 @@ content: '\f0ca'
     border-radius: 4px;
 }
 
+
 /* add-map */
 
-.map-container{
+.map-container {
     height: 200px;
     width: 100%;
 }
+
 
 /* add-all */
 
@@ -428,11 +482,18 @@ content: '\f0ca'
     transition: background-color 0.6s;
 }
 
+
 /* vue-animation */
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
     transition: opacity .2s;
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+}
+
+.fade-enter,
+.fade-leave-to
+/* .fade-leave-active below version 2.1.8 */
+
+{
     opacity: 0;
-  }
+}
