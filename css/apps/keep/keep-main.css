@@ -189,14 +189,12 @@ select {
 .note-item .keep-note-pin:before {
     font-family: awesome;
     font-size: 20px;
-    content:"\f08d";
+    content: "\f08d";
     color: var(--icon-color);
-    
     /* position: absolute;
     top: 3px;
     right: 3px; */
 }
-
 
 .keep-add textarea {
     resize: none;
@@ -236,11 +234,6 @@ select {
     gap: 10px;  */
 }
 
-.keep-list .keep-item {
-    /* break-inside: avoid-column;
-    height: fit-content; */
-}
-
 
 /* .keep-list ul {
     list-style: none;
@@ -268,33 +261,33 @@ select {
 
 .color-picker-container {
     position: absolute;
-    bottom:0px;
+    bottom: 0px;
     left: 40px;
 }
 
 .color-picker-container .colors-container {
     position: relative;
-    left:80px;
+    left: 80px;
 }
 
 .note-item .buttons-container {
     opacity: 0;
-    visibility :hidden;
+    visibility: hidden;
     transition: all 0.4s;
 }
 
 .note-item:hover .buttons-container {
     opacity: 1;
-    visibility:visible
-
+    visibility: visible
 }
 
-.note-item .delete-note:before{
+.note-item .delete-note:before {
     color: var(--icon-color);
     font-family: awesome;
     font-size: 30px;
     content: "\f1f8"
 }
+
 
 /* note-txt */
 
@@ -343,11 +336,13 @@ select {
     padding-top: 30px;
 }
 
+
 /* note-map */
+
 .note-item.map {
     padding: 30px 0 40px;
-
 }
+
 
 /* Color-picker */
 
@@ -440,6 +435,7 @@ img {
 
 
 /* note-todo */
+
 .note-item.todo {
     padding: 30px 0 40px;
 }
