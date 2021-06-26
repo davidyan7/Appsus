@@ -34,5 +34,4 @@ export default {
             return this.isColorsShown
         }
     },
-
 }

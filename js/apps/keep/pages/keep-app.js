@@ -21,7 +21,7 @@ export default {
         
         <keep-add @logNote="logNote" @openScreen="openScreen" :colors="colors"></keep-add>
         
-        <keep-list v-if="notes" @done="editDone" @pinned="pinned" @deleteNote="deleteNote" :notes="notesToShow" @clicked="noteClicked"></keep-list>
+        <keep-list v-if="notes" @done="editDone" @pinned="pinned" @deleteNote="deleteNote" :notes="notesToShow" @clicked="noteClicked" :colors="colors"></keep-list>
        
         <keep-edit v-if="false" :note="clickedNote" @done="editDone" @deleteNote="deleteNote"></keep-edit>
         

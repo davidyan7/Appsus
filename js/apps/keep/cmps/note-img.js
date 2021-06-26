@@ -1,8 +1,9 @@
-// import { eventBus } from "../../../services/event-bus-service.js";
-
+import colorPicker from "./color-picker.js"
 export default {
-    props: ['note'],
-    components: {},
+    props: ['note', 'colors'],
+    components: {
+        colorPicker
+    },
     template: `
     <section class="note-item img" :style="'background-color:'+bgc">
         <button class="keep-note-pin" @click.stop="pinned(note)">📌</button>
@@ -18,6 +19,7 @@ export default {
             </div>
         </div>
         <button class="delete-note" @click="deleteNote">Delete</button>
+        <color-picker class="color-picker-in-comp" :colors="colors" @colorChange="changeColor"></color-picker>
     </section>
     `,
     created() {},
@@ -44,6 +46,10 @@ export default {
         deleteNote() {
             this.$emit('deleteNote', this.note)
         },
+        changeColor(color) {
+            this.note.style.backgroundColor = color
+            this.$emit('done', this.note)
+        }
     },
     computed: {
         bgc() {
