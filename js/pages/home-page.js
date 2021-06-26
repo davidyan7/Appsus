@@ -3,7 +3,7 @@ import appHeader from '../cmps/app-header.js'
 export default {
     template: `
    <section class="home-page">
-       <img src="./img/bc.jpg" alt="">
+       <img class=home-img src="./img/bc.jpg" alt="">
    </section>
     `,
 
