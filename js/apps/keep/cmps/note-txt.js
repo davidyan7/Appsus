@@ -31,9 +31,6 @@ export default {
     },
     methods: {
         pinned(note) {
-            // console.log(this.note);
-            // note.isPinned = !note.isPinned
-            // eventBus.$emit('pinned', note)
             this.$emit('pinned', note)
         },
         done(ev){
@@ -59,6 +56,6 @@ export default {
         },
         fullText() {
             return this.note.info.title + '\n' + this.note.info.txt
-        }
+        },
     }
 };
