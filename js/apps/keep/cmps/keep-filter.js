@@ -1,15 +1,15 @@
 export default {
     template: `
-    <section class="book-filter">
-        <form @submit.prevent="filter">
-        <label>Search:</label>
-        <input v-model="filterBy.title" type="text"  placeholder="Search...">
+    <section class="keep-filter">
+        <!-- <form @submit.prevent="filter">
+        <label>Search:</label> -->
+        <input @input="filter" v-model="filterBy.title" type="text"  placeholder="Search...">
         <!-- <label>From price: </label>
         <input v-model.number="filterBy.fromPrice" type="number" min="0" placeholder="From price"> -->
         <!-- <label>To price: </label>
         <input v-model.number="filterBy.toPrice" type="number"  min="0" placeholder="To price"> -->
-        <button>Search</button>
-    </form>
+        <!-- <button>Search</button>
+    </form> -->
     <select v-model="filterBy.type" @change="setOption" >
         <option value="all">All</option>
         <option value="noteTxt">Text</option>

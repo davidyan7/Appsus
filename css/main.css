@@ -5,8 +5,28 @@
     font-family: awesome;
 }
 
+@font-face {
+    src: url(/fonts/Roboto-Regular.ttf);
+    font-family: Roboto-Regular;
+}
+
+@font-face {
+    src: url(/fonts/Roboto-Thin.ttf);
+    font-family: Roboto-Thin;
+}
+
 * {
     box-sizing: border-box;
+    font-family: Roboto-Thin;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Roboto-Regular;
 }
 
 body {
