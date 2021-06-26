@@ -1,6 +1,4 @@
-
-
-:root{
+:root {
     --icon-color: rgb(110, 108, 108);
 }
 
@@ -25,8 +23,9 @@ h3 {
 .keep-header {
     text-align: center;
     height: 80px;
-    background-color: rgb(255, 178, 71);
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
 }
 
 

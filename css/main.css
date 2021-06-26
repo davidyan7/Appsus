@@ -1,6 +1,5 @@
 @import "./apps/keep/keep-main.css";
 @import "./apps/mail/mail-main.css";
-
 @font-face {
     src: url(../../../fonts/fa-solid-900.ttf);
     font-family: awesome;
@@ -23,7 +22,7 @@ body {
     height: 40px;
     position: fixed;
     bottom: 0;
-    background-color: rgb(255, 178, 71);
+    /* background-color: rgb(255, 178, 71); */
     text-align: center;
 }
 
