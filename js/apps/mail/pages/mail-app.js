@@ -13,7 +13,10 @@ export default {
     template: `
         <section class="mail-app-container">
             <header class="mail-header ">
-                <h1>Appsus Mail</h1>
+            <div class="mail-logo">
+                <h1>Mail</h1>
+                <img class="header-logo" src="img/gmail-icon.png" alt="">
+                </div>
                 <div class="filtering main-layout">
                     <mail-search @search="setSearch"></mail-search>
                     <mail-filter class="mail-filter " @notFilter="notFilter" @titleSort="titleSort" @dateSort="dateSort" @filter="setFilter" ></mail-filter>
@@ -21,9 +24,12 @@ export default {
                 </header>
                 <div class="mail-app-body main-layout ">
                         <nav  v-if="mails" class="mail-nav-bar">
-                    <button @click="setCompose" class="compose-btn">+Compose</button>
-                    <button @click="setInbox" class="basic-btn inbox-btn">Inbox ({{unReadMails}})</button>
-                    <button @click="filterstarred" class="basic-btn starred-btn">Starred</button>
+                            <div class="compose-container">
+                                <img class="plus-img" src="img/gmail-plus.png" alt="">
+                                <button @click="setCompose" class="compose-btn"><h3>   Compose </h3></button>
+                            </div>
+                    <button @click="setInbox" class="basic-btn inbox-btn"><h3>Inbox</h3> ({{unReadMails}})</button>
+                    <button @click="filterstarred" class="basic-btn starred-btn"><h3>Starred</h3></button>
                 </nav>
                 <div v-if="isInbox">
                     <mail-list v-if="mails" @showDetails="showDetails" @replayMail="replayMail" @mailStarred="mailStarred" @readChosen="readChosen" @readMail="readMail" :mails="mailsToShow" @remove="removeMail" />

@@ -15,8 +15,11 @@ export default {
     template: `
     <section class="keep-app">
         <header class="keep-header">
-            <h1>Appsus Keep</h1>
-            <keep-filter @setOption="setOption" @filter="setFilter"></keep-filter>
+            <div class="keep-logo">
+                <h1>Keep</h1>
+                <img class="header-logo" src="img/google-keep-2.png" alt="">
+            </div>
+            <keep-filter class="keep-filter" @setOption="setOption" @filter="setFilter"></keep-filter>
         </header>
         
         <keep-add @logNote="logNote" @openScreen="openScreen" :colors="colors"></keep-add>
