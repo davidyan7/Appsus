@@ -23,7 +23,6 @@ h1 {
 .mail-header {
     text-align: center;
     height: 80px;
-    background-color: rgb(255, 178, 71);
     display: flex;
     align-items: center;
 }
@@ -70,6 +69,20 @@ h1 {
     height: 30px;
 }
 
+.mail-nav-bar .inbox-btn:before {
+    font-family: awesome;
+    font-size: 15px;
+    content: '\f01c';
+    color: var(--icon-color);
+}
+
+.mail-nav-bar .starred-btn:before {
+    font-family: awesome;
+    font-size: 15px;
+    content: '\f005';
+    color: var(--icon-color);
+}
+
 .compose-btn {
     border: 2px solid rgb(223, 223, 223);
     border-radius: 20px;
@@ -79,6 +92,37 @@ h1 {
 
 .mail-nav-bar button:hover {
     background-color: rgba(255, 183, 183, 0.489);
+}
+
+
+/* mail-preview */
+
+.mail-preview .starred:before {
+    font-family: awesome;
+    font-size: 15px;
+    content: '\f005';
+    color: var(--icon-color);
+}
+
+.mail-preview .read:before {
+    font-family: awesome;
+    font-size: 15px;
+    content: '\f2b6';
+    color: var(--icon-color);
+}
+
+.mail-preview .not-read:before {
+    font-family: awesome;
+    font-size: 15px;
+    content: '\f0e0';
+    color: var(--icon-color);
+}
+
+.mail-preview .trash:before {
+    font-family: awesome;
+    font-size: 15px;
+    content: '\f2ed';
+    color: var(--icon-color);
 }
 
 
