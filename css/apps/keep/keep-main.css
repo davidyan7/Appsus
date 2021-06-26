@@ -6,7 +6,6 @@
     box-sizing: border-box;
 }
 
-
 /* base */
 
 p {
@@ -16,7 +15,6 @@ p {
 h3 {
     margin: 0;
 }
-
 
 /* keep-header (temporary) */
 
@@ -38,7 +36,6 @@ h3 {
     margin-left: 20px;
 }
 
-
 /* keep-filter */
 
 .keep-filter {
@@ -53,8 +50,7 @@ h3 {
     padding: 10px;
 }
 
-.keep-filter input,
-select {
+.keep-filter input, select {
     /* width: 100%; */
     border: none;
     background-color: rgb(242, 242, 242);
@@ -65,12 +61,12 @@ select {
     width: 100%;
 }
 
-
 /* keep-app */
 
 .keep-app {
     position: relative;
     z-index: 0;
+    min-height: 95.9vh;
 }
 
 .keep-edit {
@@ -101,19 +97,15 @@ select {
     cursor: pointer;
 }
 
-
 /* .keep-edit .edit-remove-btn {
     position: absolute;
     bottom: 3px;
     right: 3px;
     cursor: pointer; */
 
-
 /* z-index: 2; */
 
-
 /* } */
-
 
 /* keep-add */
 
@@ -185,16 +177,15 @@ select {
 }
 
 .note-item .keep-note-pin:before {
+    cursor: pointer;
     font-family: awesome;
     font-size: 20px;
-    content:"\f08d";
+    content: "\f08d";
     color: var(--icon-color);
-    
     /* position: absolute;
     top: 3px;
     right: 3px; */
 }
-
 
 .keep-add textarea {
     resize: none;
@@ -211,7 +202,6 @@ select {
     top: 3px;
     right: 3px;
 }
-
 
 /* keep-list */
 
@@ -239,13 +229,11 @@ select {
     height: fit-content; */
 }
 
-
 /* .keep-list ul {
     list-style: none;
     margin: 0;
     padding: 0;
 } */
-
 
 /* notes */
 
@@ -266,28 +254,27 @@ select {
 
 .color-picker-container {
     position: absolute;
-    bottom:0px;
+    bottom: 0px;
     left: 40px;
 }
 
 .color-picker-container .colors-container {
     position: relative;
-    left:80px;
+    left: 80px;
 }
 
 .note-item .buttons-container {
     opacity: 0;
-    visibility :hidden;
+    visibility: hidden;
     transition: all 0.4s;
 }
 
 .note-item:hover .buttons-container {
     opacity: 1;
-    visibility:visible
-
+    visibility: visible
 }
 
-.note-item .delete-note:before{
+.note-item .delete-note:before {
     color: var(--icon-color);
     font-family: awesome;
     font-size: 30px;
@@ -342,9 +329,9 @@ select {
 }
 
 /* note-map */
+
 .note-item.map {
     padding: 30px 0 40px;
-
 }
 
 /* Color-picker */
@@ -381,7 +368,6 @@ select {
     z-index: 1
 }
 
-
 /* .colors-container.closed {
     background-color: rgb(34, 30, 30);
     display: grid;
@@ -413,13 +399,11 @@ select {
     content: "\f53f"
 }
 
-
 /* .keep-preview textarea:hover{
     box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.8);
     transition: all 0.4;
 
 } */
-
 
 /* note-img */
 
@@ -436,8 +420,8 @@ img {
     padding: 30px 0 40px
 }
 
-
 /* note-todo */
+
 .note-item.todo {
     padding: 30px 0 40px;
 }
@@ -455,6 +439,13 @@ img {
     text-decoration: line-through;
 }
 
+.todo-done:before {
+    cursor: pointer;
+    font-family: awesome;
+    font-size:20px;
+    color: var(--icon-color);
+    content:"\f00c"
+}
 
 /* note-audio */
 
@@ -466,7 +457,6 @@ img {
     width: 100%;
 }
 
-
 /* keep-add-type */
 
 .keep-add-type {
@@ -475,6 +465,12 @@ img {
     left: 11px;
     color: var(--icon-color);
 }
+
+.keep-add-type button {
+    color: var(--icon-color);;
+    padding: 0;
+}
+
 
 .keep-add-type .addTodo:before {
     font-family: awesome;
@@ -507,11 +503,20 @@ img {
     /* f0ca */
 }
 
+
 .keep-add-type .addTxt:before {
     font-family: awesome;
     font-size: 30px;
     content: '\f075'
     /* f0ca */
+}
+
+.keep-add-type .addTxt-btn {
+    border: none;
+    background-color: white;
+}
+.keep-add-type .addTxt-btn:focus {
+    background-color: rgb(141, 66, 66);
 }
 
 .keep-add-type>* {
@@ -535,7 +540,6 @@ img {
     margin-bottom: 4px;
 }
 
-
 /* add video */
 
 .add-video {
@@ -552,7 +556,6 @@ img {
     margin-bottom: 4px;
 }
 
-
 /* add-todo */
 
 .add-todo ul {
@@ -563,7 +566,6 @@ img {
     border-radius: 4px;
 }
 
-
 /* add-map */
 
 .map-container {
@@ -571,25 +573,27 @@ img {
     width: 100%;
 }
 
-
 /* add-all */
 
 .color-effect {
     transition: background-color 0.6s;
 }
 
+/* mail-app-container */
+
+.mail-app-container {
+    min-height: 95.9vh;
+}
 
 /* vue-animation */
 
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity .2s;
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .4s;
 }
 
-.fade-enter,
-.fade-leave-to
+.fade-enter, .fade-leave-to
 /* .fade-leave-active below version 2.1.8 */
 
-{
+    {
     opacity: 0;
 }

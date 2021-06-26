@@ -6,7 +6,7 @@ export default {
     },
     template: `
     <section class="note-item video" :style="'background-color:'+bgc">
-    <span class="keep-note-pin" @click.stop="pinned(note)"></span>
+    
         <div class="note-container">
         <iframe width="100%" height="220" :src="note.info.url">
         </iframe>
@@ -16,6 +16,7 @@ export default {
             </div>
         </div>   
         <div class="buttons-container"> 
+        <span class="keep-note-pin" @click.stop="pinned(note)"></span>
             <span class="delete-note" @click="deleteNote"></span>
         </div>
         <div class="color-picker-container">

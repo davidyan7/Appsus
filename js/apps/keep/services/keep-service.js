@@ -20,7 +20,7 @@ var noteJson = [{
             txt: "Fullstack Me Baby!"
         },
         style: {
-            backgroundColor: "#fff"
+            backgroundColor: "#9371cfbf"
         }
     },
     {
@@ -31,7 +31,7 @@ var noteJson = [{
             title: "Harry Mack"
         },
         style: {
-            backgroundColor: "#fff"
+            backgroundColor: "#aec8dd"
         }
     },
     {
@@ -66,7 +66,7 @@ var noteJson = [{
             txt: "Make waze!"
         },
         style: {
-            backgroundColor: "#fff"
+            backgroundColor: "#ff9b08b8"
         }
     },
     {
@@ -78,7 +78,7 @@ var noteJson = [{
             txt: 'All day long'
         },
         style: {
-            backgroundColor: "#fff"
+            backgroundColor: "#7c80f2"
         }
     },
     {
@@ -114,7 +114,7 @@ var noteJson = [{
             title: 'Not sure what it is, but I liked it!'
         },
         style: {
-            backgroundColor: "#fff"
+            backgroundColor: "#2abaa6"
         },
     }
 ];

@@ -1,7 +1,7 @@
 export default {
     template: `
     <section class=keep-add-type>
-        <span class="addTxt" @click="typechange"></span>
+        <button class="addTxt-btn"><span class="addTxt" @click="typechange"></span></button> 
         <span class="addImg" @click="typechange"></span>
         <span class="addVideo" @click="typechange"></span>
         <span class="addTodo" @click="typechange"></span>
