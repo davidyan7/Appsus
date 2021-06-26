@@ -10,12 +10,7 @@ export default {
                 <button class="not-starred" @click.stop="mailStarred(mail)"  v-if="!mail.isStarred">☆</button>
                 <button  class="read" v-if="mail.isRead" @click.stop="readChosen(mail)"></button>
                 <button class="not-read" v-if="!mail.isRead" @click.stop="readChosen(mail)" ></button>
-                <!-- <img  class="read" v-if="mail.isRead" @click.stop="readChosen(mail)" src="img/read.png" >
-                <img class="not-read" v-if="!mail.isRead" @click.stop="readChosen(mail)" src="img/unread.png" > -->
                 <button class="trash" @click.stop="remove(mail.id)"  ></button>
-            <!-- <img @click.stop="remove(mail.id)" src="img/trash.png"> -->
-           
-            <!-- <button @click.stop="readChosen(mail)" ></button> -->
         </span>
         </p>
         <div class="open-mail" v-if="isOpen"> 
