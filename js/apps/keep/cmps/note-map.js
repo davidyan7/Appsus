@@ -1,19 +1,17 @@
 // import { eventBus } from "../../../services/event-bus-service.js";
-import { mapService } from "../services/map.service.js";
+import { mapService } from "../services/map-service.js";
 
 export default {
     props: ['note'],
     components: {},
     template: `
-    <section class="note-item map" >
+    <section class="note-item map" :style="'background-color:'+bgc">
         <button class="keep-note-pin" @click.stop="pinned(note)">📌</button>
-        <div id="map" class="note-container">
-            <ul >
-                <div  class="map-container">
-                    
-                </div>
-            </ul>
-
+        <!-- <div id="map" class="note-container"> -->
+        <div class="note-container">
+            <div class="map-img-container">
+                <img :src="note.info.url" alt="">
+            </div>
             <div class="text-content">
                 <h3 class="title" contenteditable @blur="done">{{this.note.info.title}}</h3>
             </div>
@@ -21,10 +19,6 @@ export default {
         <button class="delete-note" @click="deleteNote">Delete</button>
     </section>
     `,
-    created() {
-        mapService.initMap()
-    },
-
     data() {
         return {}
     },
@@ -47,5 +41,11 @@ export default {
         deleteNote() {
             this.$emit('deleteNote', this.note)
         },
+        
     },
+    computed: {
+        bgc() {
+            return this.note.style.backgroundColor
+        },
+    }
 };

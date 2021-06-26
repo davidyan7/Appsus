@@ -96,16 +96,29 @@ var noteJson = [{
         }
     },
     {
+        id: 'as1232a2j2a23',
+        type: "noteMap",
+        info: {
+            url: `https://maps.googleapis.com/maps/api/staticmap?center=40.7484405,-73.98566439999999&zoom=15&size=600x300&maptype=roadmap&markers=color:red|40.7484405,-73.98566439999999&key=AIzaSyC-aFirhd5EzuWZ5AsMDq_-OKMONox8TYg`,
+            title: "Travel to the Empire State Building",
+        },
+        style: {
+            backgroundColor: "#fff"
+        }
+    },
+    {
         type: "noteAudio",
         info: {
             url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-            title: null
+            title: 'Not sure what it is, but I liked it!'
         },
         style: {
             backgroundColor: "#fff"
         },
     }
 ];
+
+var url = `AIzaSyC-aFirhd5EzuWZ5AsMDq_-OKMONox8TYg`
 
 createNotes()
 

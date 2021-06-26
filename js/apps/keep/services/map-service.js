@@ -8,12 +8,15 @@ export const mapService = {
 }
 
 var gMap;
+var gMarker;
 
 function initMap(lat = 32.0749831, lng = 34.9120554) {
     // console.log('InitMap');
     return _connectGoogleApi()
         .then(() => {
             // console.log('google available');
+            console.log(document.querySelector('#map'));
+            
             gMap = new google.maps.Map(
                     document.querySelector('#map'), {
                         center: { lat, lng },
@@ -25,13 +28,14 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
 }
 // console.log(gMap);
 
-function addMarker(loc) {
-    var marker = new google.maps.Marker({
-        position: loc,
+function addMarker(lat, lng) {
+    if(gMarker) gMarker.setMap(null)
+    gMarker = new google.maps.Marker({
+        position: {lat, lng},
         map: gMap,
         title: 'Hello World!'
     });
-    return marker;
+    return gMarker;
 }
 
 function panTo(lat, lng) {
@@ -59,6 +63,7 @@ function _connectGoogleApi() {
 function getLocationFromInput(value) {
     var valToArray = value.split(' ')
     var valToString = valToArray.join('+')
+    console.log(valToString);
 
     var url = `https://maps.googleapis.com/maps/api/geocode/json?address=${valToString}&key=AIzaSyDo5CV8LZHlMGoyjo2qaDbYwjrlrs9zwEE`
     return axios.get(url)

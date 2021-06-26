@@ -295,6 +295,11 @@ img {
     text-decoration: line-through;
 }
 
+/* note-audio */
+.audio-container audio{
+    width: 100%;
+}
+
 
 /* keep-add-type */
 
@@ -346,6 +351,13 @@ img {
 
 .add-todo input {
     border-radius: 4px;
+}
+
+/* add-map */
+
+.map-container{
+    height: 200px;
+    width: 100%;
 }
 
 /* add-all */

@@ -5,7 +5,7 @@ export default {
     components: {
     },
     template: `
-    <section class="note-item todo">
+    <section class="note-item todo" :style="'background-color:'+bgc">
         <button class="keep-note-pin" @click.stop="pinned(note)">📌</button>
         
         <div class="note-container">
@@ -45,7 +45,7 @@ export default {
             // eventBus.$emit('pinned', note)
             this.$emit('pinned', note)
         },
-        done(idx,ev) {
+        done(idx, ev) {
             // console.log(ev);
             if (ev.target.className.includes('title')) {
                 // console.log('work');
@@ -62,12 +62,9 @@ export default {
             this.$emit('deleteNote', this.note)
         },
     },
-    
-    // computed: {
-    //     isDone(idx) {
-    //         console.log(idx);
-    //         var done = this.note.info.todos[idx].isDone
-    //         return {marked: done}
-    //     }
-    // }
-};
+    computed: {
+        bgc() {
+            return this.note.style.backgroundColor
+        },
+    }
+}

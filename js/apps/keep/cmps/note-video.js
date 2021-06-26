@@ -1,7 +1,7 @@
 export default {
     props: ['note'],
     template: `
-    <section class="note-item video">
+    <section class="note-item video" :style="'background-color:'+bgc">
         <button class="keep-note-pin" @click.stop="pinned(note)">📌</button>
         <div class="note-container">
         <!-- <iframe width="100%"  src="https://www.youtube.com/watch?v=wq59OYh1mtc">
@@ -35,4 +35,9 @@ export default {
             this.$emit('deleteNote', this.note)
         },
     },
+    computed: {
+        bgc() {
+            return this.note.style.backgroundColor
+        },
+    }
 }

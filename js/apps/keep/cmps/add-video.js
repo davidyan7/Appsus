@@ -9,6 +9,7 @@ export default {
     watch: {
         color: function (val) {
             this.note.style.backgroundColor = this.color = val
+            this.logNote()
         }
     },
     data() {

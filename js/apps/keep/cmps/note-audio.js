@@ -4,16 +4,14 @@ export default {
     props: ['note'],
     components: {},
     template: `
-    <section class="note-item audio" >
+    <section class="note-item audio" :style="'background-color:'+bgc">
         <button class="keep-note-pin" @click.stop="pinned(note)">📌</button>
         <div class="note-container">
             <ul>
                 <div class="audio-container">
-                    <img :src="note.info.url" alt="">
-                    <video controls="" name="media"><source :src="note.info.url"  type="audio/mpeg">asdas</video>
+                    <audio controls="" name="media"><source :src="note.info.url"  type="audio/mpeg">asdas</audio>
                 </div>
             </ul>
-
             <div class="text-content">
                 <h3 class="title" contenteditable @blur="done">{{this.note.info.title}}</h3>
             </div>
@@ -46,4 +44,9 @@ export default {
             this.$emit('deleteNote', this.note)
         },
     },
+    computed: {
+        bgc() {
+            return this.note.style.backgroundColor
+        },
+    }
 };

@@ -4,7 +4,7 @@ export default {
     props: ['note'],
     components: {},
     template: `
-    <section class="note-item img" >
+    <section class="note-item img" :style="'background-color:'+bgc">
         <button class="keep-note-pin" @click.stop="pinned(note)">📌</button>
         <div class="note-container">
             <ul>
@@ -45,4 +45,9 @@ export default {
             this.$emit('deleteNote', this.note)
         },
     },
+    computed: {
+        bgc() {
+            return this.note.style.backgroundColor
+        },
+    }
 };

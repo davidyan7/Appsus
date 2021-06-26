@@ -11,6 +11,7 @@ export default {
         color: function(val) {
             console.log(val);
             this.note.style.backgroundColor = this.color = val
+            this.logNote()
         }
     },
     data() {
