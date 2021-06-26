@@ -89,6 +89,7 @@ body {
     left: 3px;
     top: 70px;
     border-radius: 10px;
+    z-index: 3;
 }
 
 
