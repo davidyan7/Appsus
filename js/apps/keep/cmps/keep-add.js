@@ -21,7 +21,6 @@ export default {
     },
     template: `
         <!-- <section class="keep-add">
-            <button class="pin-textarea">📌</button>
             <textarea id="textArea" name="text-area" v-model="noteTxt.info.txt" placeholder="Take a note" @blur="logNote" :style="'background:' + bgcColor">    
             </textarea>
             <color-picker :colors=colors @colorChange="changeTextareaBgc" ></color-picker>
@@ -29,9 +28,6 @@ export default {
         <section class="keep-add">
             <!-- <div class="add-note-container" tabindex="0" @click="onClickField":style="'background:' + bgcColor"> -->
             <div class="add-note-container" tabindex="0" @click="onClickField" :style="bgcColor">
-                <!-- <button class="pin-textarea">📌</button>
-                <p class="title" contentEditable placeholder="enter text" @input="onInput"  @click="onClickField" :class="isTitlePlaceholder"></p>
-                <div class="content" contentEditable="true" data-placeholder="hi" @input="onInput" @click="onClickField" :class="isContentPlaceholder"></div> -->
                 <component :is="cmpType" @logNote="logNote" :color="currColor"></component>
                 <color-picker :colors=colors @colorChange="changeColor" ></color-picker>
                 <keep-add-type class="keep-add-type" @typechange="changeType"></keep-add-type>

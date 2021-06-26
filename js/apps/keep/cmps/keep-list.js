@@ -6,7 +6,7 @@ import noteVideo from "./note-video.js"
 import noteMap from "./note-map.js"
 
 export default {
-    props: ['notes'],
+    props: ['notes', 'colors'],
     components: {
         // keepDetails
         noteTxt,
@@ -21,14 +21,14 @@ export default {
         <h1>Pinned</h1>
     <div class="pinned">
         <section v-if="note.isPinned" v-for="note in notes">
-            <component  :is="note.type" :note="note" @pinned="pinned" @done="done" @deleteNote="deleteNote" @click.native="log(note.id)"></component>
+            <component  :is="note.type" :note="note" :colors="colors" @pinned="pinned" @done="done" @deleteNote="deleteNote" @click.native="log(note.id)"></component>
         </section>
     </div>
         <h1>Others</h1>
         <hr/>
     <div class="others">
             <section  v-if="!note.isPinned" v-for="note in notes">
-                <component :is="note.type" :note="note" @pinned="pinned" @done="done" @deleteNote="deleteNote" @click.native="log(note.id)"></component>
+                <component :is="note.type" :note="note" :colors="colors" @pinned="pinned" @done="done" @deleteNote="deleteNote" @click.native="log(note.id)"></component>
             </section>
     </div>
     </section>
@@ -52,7 +52,9 @@ export default {
         deleteNote(note) {
             this.$emit('deleteNote', note)
         }
+        // saveColorChange() {
 
+        // }
     }
 
 };

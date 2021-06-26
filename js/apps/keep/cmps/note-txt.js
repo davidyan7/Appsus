@@ -1,21 +1,26 @@
 import { eventBus } from "../../../services/event-bus-service.js";
-
+import colorPicker from "./color-picker.js"
 export default {
-    props: ['note'],
+    props: ['note', 'colors'],
     components: {
-        // keepDetails
-
+        colorPicker
     },
     template: `
     <section class="note-item txt" :style="'background-color:'+bgc">
-        <button class="keep-note-pin" @click.stop="pinned(note)">📌</button>
+        <span class="keep-note-pin" @click.stop="pinned(note)"></span>        
+
         <div class="note-container">
             <div class="text-content">
                 <h3 class="title" contenteditable @blur="done">{{this.note.info.title}}</h3>
                 <p class="txt" contenteditable @blur="done">{{this.note.info.txt}}</p>
             </div>
         </div>    
-            <button class="delete-note" @click="deleteNote">Delete</button>
+        <div class="buttons-container">
+            <span class="delete-note" @click="deleteNote"></span>
+        </div>
+        <div class="color-picker-container">
+            <color-picker :colors="colors" @colorChange="changeColor"></color-picker>
+        </div>
     </section>
     `,
     created() {
@@ -26,9 +31,6 @@ export default {
     },
     methods: {
         pinned(note) {
-            // console.log(this.note);
-            // note.isPinned = !note.isPinned
-            // eventBus.$emit('pinned', note)
             this.$emit('pinned', note)
         },
         done(ev){
@@ -43,6 +45,10 @@ export default {
         deleteNote() {
             this.$emit('deleteNote', this.note)
         },
+        changeColor(color) {
+            this.note.style.backgroundColor = color
+            this.$emit('done', this.note)
+        }
     },
     computed: {
         bgc() {
@@ -50,6 +56,6 @@ export default {
         },
         fullText() {
             return this.note.info.title + '\n' + this.note.info.txt
-        }
+        },
     }
 };

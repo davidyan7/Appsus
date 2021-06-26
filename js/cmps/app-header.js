@@ -8,6 +8,7 @@ export default {
             <router-link to="/mail" >Mail</router-link> |
             <router-link to="/keep" >Keep</router-link> 
         </nav>
+        <div class="open-screen-header" :class="isScrOpen" @click="closeMenu"></div>
     </header>
     `,
     data() {
@@ -18,6 +19,16 @@ export default {
     methods: {
         setMenuOpen() {
             this.isOpen = !this.isOpen
+        },
+        closeMenu() {
+            this.isOpen = false
+        },
+
+    },
+    computed: {
+        isScrOpen() {
+            var isScreenOpen = this.isOpen
+            return { open: isScreenOpen }
         }
     }
 };

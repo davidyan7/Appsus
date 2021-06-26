@@ -1,13 +1,12 @@
-// import { eventBus } from "../../../services/event-bus-service.js";
-import { mapService } from "../services/map-service.js";
-
+import colorPicker from "./color-picker.js"
 export default {
-    props: ['note'],
-    components: {},
+    props: ['note', 'colors'],
+    components: {
+        colorPicker
+    },
     template: `
     <section class="note-item map" :style="'background-color:'+bgc">
-        <button class="keep-note-pin" @click.stop="pinned(note)">📌</button>
-        <!-- <div id="map" class="note-container"> -->
+    <span class="keep-note-pin" @click.stop="pinned(note)"></span>
         <div class="note-container">
             <div class="map-img-container">
                 <img :src="note.info.url" alt="">
@@ -16,7 +15,12 @@ export default {
                 <h3 class="title" contenteditable @blur="done">{{this.note.info.title}}</h3>
             </div>
         </div>
-        <button class="delete-note" @click="deleteNote">Delete</button>
+        <div class="buttons-container">
+            <span class="delete-note" @click="deleteNote"></span>
+        </div>
+        <div class="color-picker-container">
+            <color-picker :colors="colors" @colorChange="changeColor"></color-picker>
+        </div>
     </section>
     `,
     data() {
@@ -41,7 +45,10 @@ export default {
         deleteNote() {
             this.$emit('deleteNote', this.note)
         },
-        
+        changeColor(color) {
+            this.note.style.backgroundColor = color
+            this.$emit('done', this.note)
+        }
     },
     computed: {
         bgc() {
