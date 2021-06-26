@@ -1,17 +1,17 @@
 @import "./apps/keep/keep-main.css";
 @import "./apps/mail/mail-main.css";
 @font-face {
-    src: url(../../../fonts/fa-solid-900.ttf);
+    src: url(../fonts/fa-solid-900.ttf);
     font-family: awesome;
 }
 
 @font-face {
-    src: url(/fonts/Roboto-Regular.ttf);
+    src: url(../fonts/Roboto-Regular.ttf);
     font-family: Roboto-Regular;
 }
 
 @font-face {
-    src: url(/fonts/Roboto-Thin.ttf);
+    src: url(../fonts/Roboto-Thin.ttf);
     font-family: Roboto-Thin;
 }
 
@@ -85,6 +85,7 @@ body {
     left: 3px;
     top: 70px;
     border-radius: 10px;
+    z-index: 3;
 }
 
 
