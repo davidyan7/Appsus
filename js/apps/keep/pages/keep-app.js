@@ -115,7 +115,7 @@ export default {
             this.isScreenOpen = false
             console.log('closed');
             this.addNote()
-            this.eventBus.$emit
+            eventBus.$emit('noteAdded')
         },
         openScreen() {
             this.isScreenOpen = true
