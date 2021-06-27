@@ -36,7 +36,19 @@ export default {
         },
 
         showTime() {
-            return new Date(this.mail.sentAt).getHours() + ':' + new Date(this.mail.sentAt).getMinutes()
+            let sentDate = new Date(this.mail.sentAt).toString()
+            let currDate = new Date().toString()
+
+            if (sentDate.substr(0, 15) === currDate.substr(0, 15)) {
+                return sentDate.substr(16, 5);
+            }
+            /// if it's the same year- show date without year
+            else if (sentDate.substr(11, 4) === currDate.substr(11, 4)) {
+                return sentDate.substr(3, 7);
+            }
+            /// if it's from another year- show full date 
+            else return new Date(this.email.sentAt).toLocaleDateString()
+
         },
         isRead() {
             return { marked: !this.mail.isRead }
