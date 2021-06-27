@@ -152,7 +152,7 @@ h3 {
     height: 100%;
     /* z-index: 2; */
     /* border: 1px solid; */
-    padding: 40px 10px;
+    padding: 40px 10px 53px; 
     box-shadow: 1px 2px 10px 1px rgba(0, 0, 0, 0.44);
     transition: background-color 0.6s;
     margin-bottom: 10px;
@@ -277,6 +277,15 @@ h3 {
     font-size: 30px;
     content: "\f1f8"
 }
+
+.color-picker-container .color-picker button {
+    background-color: transparent;
+    padding:0px;
+    border: none;
+}
+
+
+
 
 
 /* note-txt */
@@ -447,6 +456,14 @@ img {
     content:"\f00c"
 }
 
+.todo-done.done:before {
+    cursor: pointer;
+    font-family: awesome;
+    font-size:20px;
+    color: var(--icon-color);
+    content:"\f0e2"
+}
+
 /* note-audio */
 
 .note-item.audio {
@@ -511,13 +528,42 @@ img {
     /* f0ca */
 }
 
-.keep-add-type .addTxt-btn {
+.keep-add-type button {
     border: none;
-    background-color: white;
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
-/* .keep-add-type .addTxt-btn:focus {
-    background-color: rgb(141, 66, 66);
-} */
+
+
+.keep-add-type button:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+.keep-add-type button:focus {
+    background-color: #0285ed5c;
+    border-radius: 50%;
+}
+
+.color-picker-container-add .color-picker button {
+    border: none;
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+
+.color-picker-container-add .color-picker button:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+.color-picker-container-add .color-picker button:focus {
+    background-color: #0285ed5c;
+    border-radius: 50%;
+}
+
 
 .keep-add-type>* {
     cursor: pointer;

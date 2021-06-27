@@ -1,3 +1,5 @@
+import { eventBus } from "../../../services/event-bus-service.js";
+
 export default {
     props: ['color'],
     components: {},
@@ -7,6 +9,9 @@ export default {
             <input class="color-effect" type="text" v-model="note.info.title" @input="logNote" placeholder="Enter description" :style="bgcColor">
     </section>
 `,
+    created() {
+        eventBus.$on('noteAdded', this.clearFields)
+    },
     watch: {
         color: function(val) {
             console.log(val);
@@ -33,6 +38,10 @@ export default {
             // console.log(this.note.info.title);
             // console.log(this.note.info.txt);
             this.$emit('logNote', this.note)
+        },
+        clearFields() {
+            this.note.info.url = ''
+            this.note.info.title = ''
         }
     },
     computed: {

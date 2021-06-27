@@ -1,3 +1,5 @@
+import { eventBus } from "../../../services/event-bus-service.js";
+
 export default {
     props: ['color'],
     components: {},
@@ -11,10 +13,12 @@ export default {
                         <input class="color-effect" type="text" v-model="todo.txt" @input="logNote" placeholder="Enter task" :style="bgcColor">
                     </li>
                 </ul>
-                
             </div>
         </section>
     `,
+    created() {
+        eventBus.$on('noteAdded', this.clearFields)
+    },
     watch: {
         color: function (val) {
             console.log(val);
@@ -47,6 +51,14 @@ export default {
         },
         removeTask() {
             this.note.info.todos.pop()
+        },
+        clearFields() {
+            const length = this.note.info.todos.length
+            this.note.info.label = ''
+            for (let i = 0; i < length; i++) {
+                this.note.info.todos[i].txt = ''
+            }
+            this.urlToEdit = ''
         }
     },
     computed: {

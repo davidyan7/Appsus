@@ -15,7 +15,7 @@ export default {
                     <h3 v-if="note" class="title" contenteditable @blur="done(1, $event)">{{note.info.label}}</h3>
                     <li v-if="note" v-for='(todo, idx) in note.info.todos'>
                         <div class="todo-line">
-                            <p class="txt" contentEditable :class="{crossed: todo.isDone}" @blur="done(idx, $event)">{{todo.txt}}</p><span class="todo-done" @click="markIsDone(idx)"></span>
+                            <p class="txt" contentEditable :class="{crossed: todo.isDone}" @blur="done(idx, $event)">{{todo.txt}}</p><span class="todo-done" @click="markIsDone(idx)" :class="{done: todo.isDone }"></span>
                         </div>
                     </li>
                 </ul>

@@ -9,7 +9,7 @@ export default {
             </span>
         <!-- </transition> -->
         </div>
-                <span class=colors-icon @click="showColors"></span>
+                <button class=colors-icon @click="showColors"></button>
         </section>
     `,
     created() {

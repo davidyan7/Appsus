@@ -2,11 +2,11 @@ export default {
     template: `
     <section class=keep-add-type>
         <button class="addTxt-btn"><span class="addTxt" @click="typechange"></span></button> 
-        <span class="addImg" @click="typechange"></span>
-        <span class="addVideo" @click="typechange"></span>
-        <span class="addTodo" @click="typechange"></span>
-        <span class="addAudio" @click="typechange"></span>
-        <span class="addMap" @click="typechange"></span>
+        <button class="addImg" @click="typechange"></button>
+        <button class="addVideo" @click="typechange"></button>
+        <button class="addTodo" @click="typechange"></button>
+        <button class="addAudio" @click="typechange"></button>
+        <button class="addMap" @click="typechange"></button>
     </section>
     `,
     methods: {

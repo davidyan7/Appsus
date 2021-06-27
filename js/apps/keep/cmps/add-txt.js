@@ -1,3 +1,5 @@
+import { eventBus } from "../../../services/event-bus-service.js";
+
 export default {
     props: ['color'],
     components: {
@@ -12,6 +14,7 @@ export default {
     created() {
         console.log(this.color);
         this.note.backgroundColor = this.color
+        eventBus.$on('noteAdded', this.clearFields)
     },
     watch: {
             color: function (val) {
@@ -40,6 +43,10 @@ export default {
                 console.log(this.note.info.title);
                 console.log(this.note.info.txt);
                 this.$emit('logNote', this.note)
+            },
+            clearFields() {
+                this.note.info.title = ''
+                this.note.info.txt = ''
             }
         },
         computed: {

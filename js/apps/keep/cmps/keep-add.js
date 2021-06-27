@@ -29,7 +29,10 @@ export default {
             <!-- <div class="add-note-container" tabindex="0" @click="onClickField":style="'background:' + bgcColor"> -->
             <div class="add-note-container" tabindex="0" @click="onClickField" :style="bgcColor">
                 <component :is="cmpType" @logNote="logNote" :color="currColor"></component>
-                <color-picker :colors=colors @colorChange="changeColor" ></color-picker>
+
+                <div class="color-picker-container-add">
+                    <color-picker :colors="colors" @colorChange="changeColor"></color-picker>
+                </div>
                 <keep-add-type class="keep-add-type" @typechange="changeType"></keep-add-type>
             </div>
         </section>

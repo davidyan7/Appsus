@@ -1,3 +1,4 @@
+import { eventBus } from "../../../services/event-bus-service.js";
 import { mapService } from "../services/map-service.js";
 
 
@@ -20,6 +21,7 @@ export default {
         mapService.initMap()
             .then(this.addMapListener)
             .catch((e) => console.log('Error: cannot init map', e));
+        eventBus.$on('noteAdded', this.clearFields)
     },
     mounted() {
 
@@ -28,7 +30,7 @@ export default {
         color: function (val) {
             console.log(val);
             this.note.style.backgroundColor = this.color = val
-            console.log('updated',this.note.style.backgroundColor);
+            console.log('updated', this.note.style.backgroundColor);
             this.logNote()
         }
     },
@@ -71,7 +73,12 @@ export default {
                     mapService.panTo(obj.lat, obj.lng)
                     mapService.addMarker(obj.lat, obj.lng)
                     this.note.info.url = `https://maps.googleapis.com/maps/api/staticmap?center=${obj.lat},${obj.lng}&zoom=15&size=600x300&maptype=roadmap&markers=color:red|${obj.lat},${obj.lng}&key=AIzaSyC-aFirhd5EzuWZ5AsMDq_-OKMONox8TYg`
-                this.logNote})
+                    this.logNote
+                })
+        },
+        clearFields() {
+            this.urlToEdit = ''
+            this.note.info.title = ''
         }
     },
     computed: {
