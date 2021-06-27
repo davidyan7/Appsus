@@ -347,7 +347,7 @@ h1 {
 /* mail-details */
 
 .mail-details img {
-    width: 50%;
+    width: 70%;
 }
 
 @media (max-width: 650px) {
