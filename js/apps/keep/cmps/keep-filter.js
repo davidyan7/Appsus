@@ -11,6 +11,7 @@ export default {
         <!-- <button>Search</button>
     </form> -->
     <select v-model="filterBy.type" @change="setOption" >
+    <option selected value="">Filter</option>
         <option value="all">All</option>
         <option value="noteTxt">Text</option>
         <option value="noteImg">Img</option>

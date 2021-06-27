@@ -17,19 +17,20 @@ export default {
                 <h1>Mail</h1>
                 <img class="header-logo" src="img/gmail-icon.png" alt="">
                 </div>
-                <div class="filtering main-layout">
+                <div class="filtering">
                     <mail-search @search="setSearch"></mail-search>
                     <mail-filter class="mail-filter " @notFilter="notFilter" @titleSort="titleSort" @dateSort="dateSort" @filter="setFilter" ></mail-filter>
                 </div>
                 </header>
-                <div class="mail-app-body main-layout ">
+                <div class="mail-app-body ">
                         <nav  v-if="mails" class="mail-nav-bar">
                             <div class="compose-container">
                                 <img class="plus-img" src="img/gmail-plus.png" alt="">
                                 <button @click="setCompose" class="compose-btn"><h3>   Compose </h3></button>
                             </div>
                     <button @click="setInbox" class="basic-btn inbox-btn"><h3>Inbox</h3> ({{unReadMails}})</button>
-                    <button @click="filterstarred" class="basic-btn starred-btn"><h3>Starred</h3></button>
+                    <button @click="filterstarred" class="basic-btn starred-btn"><h3>Starred</h3>({{starsMails}})</button>
+                    <button @click="filterSent" class="basic-btn sent-btn"><h3>Sent</h3></button>
                 </nav>
                 <div v-if="isInbox">
                     <mail-list v-if="mails" @showDetails="showDetails" @replayMail="replayMail" @mailStarred="mailStarred" @readChosen="readChosen" @readMail="readMail" :mails="mailsToShow" @remove="removeMail" />
@@ -48,6 +49,7 @@ export default {
             filterStar: null,
             isInbox: true,
             isCompose: false,
+            isSent: null,
             selectedMail: null,
             mailToCompose: null,
 
@@ -71,11 +73,12 @@ export default {
                 txt: 'Mail send success',
                 type: 'success'
             };
-            eventBus.$emit('show-msg', msg, this.book);
+            eventBus.$emit('show-msg', msg);
             this.selectedMail = null
             this.filterStar = null
             this.isInbox = true
             this.isCompose = false
+            this.isSent = false
         },
 
         removeMail(mailId) {
@@ -103,11 +106,13 @@ export default {
             this.filterStar = false
             this.mailToCompose = mail
             this.selectedMail = null
+            this.isSent = false
         },
         showDetails(mail) {
             this.selectedMail = mail
             this.isInbox = false
             this.isCompose = false
+            this.isSent = false
         },
         readChosen(mail) {
             mailService.readChosen(mail)
@@ -125,7 +130,16 @@ export default {
             this.filterBy = filterBy;
         },
         filterstarred() {
+            this.isSent = false
             this.filterStar = true
+            this.mailToCompose = null
+            this.isInbox = true
+            this.isCompose = false
+            this.selectedMail = null
+        },
+        filterSent() {
+            this.filterStar = false
+            this.isSent = true
             this.mailToCompose = null
             this.isInbox = true
             this.isCompose = false
@@ -133,6 +147,7 @@ export default {
         },
         setCompose() {
             this.mailToCompose = null
+            this.isSent = false
             this.isInbox = false
             this.isCompose = true
             this.filterStar = false
@@ -140,6 +155,7 @@ export default {
 
         },
         setInbox() {
+            this.isSent = false
             this.filterStar = null
             this.mailToCompose = null
             this.isInbox = true
@@ -163,9 +179,13 @@ export default {
     },
     computed: {
         mailsToShow() {
-            if (!this.searchBy && !this.filterBy && !this.filterStar) return this.mails
+            if (!this.searchBy && !this.filterBy && !this.filterStar & !this.isSent) return this.mails
             if (this.filterStar) {
                 const booksToShow = this.mails.filter(mail => mail.isStarred)
+                return booksToShow
+            }
+            if (this.isSent) {
+                const booksToShow = this.mails.filter(mail => mail.isSent)
                 return booksToShow
             }
             if (this.searchBy) {
@@ -190,12 +210,20 @@ export default {
             }
 
         },
+
         unReadMails() {
-            var sumUnread = 0
+            var sum = 0
             this.mails.forEach(mail => {
-                if (!mail.isRead) sumUnread++
+                if (!mail.isRead) sum++
             })
-            return sumUnread
+            return sum
+        },
+        starsMails() {
+            var sum = 0
+            this.mails.forEach(mail => {
+                if (mail.isStarred) sum++
+            })
+            return sum
         }
     },
     components: {

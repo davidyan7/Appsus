@@ -6,6 +6,7 @@
     box-sizing: border-box;
 }
 
+
 /* base */
 
 p {
@@ -15,6 +16,7 @@ p {
 h3 {
     margin: 0;
 }
+
 
 /* keep-header (temporary) */
 
@@ -36,6 +38,7 @@ h3 {
     margin-left: 20px;
 }
 
+
 /* keep-filter */
 
 .keep-filter {
@@ -47,10 +50,11 @@ h3 {
     height: 33px;
     width: 60%;
     margin-left: 50px;
-    padding: 10px;
+    padding-left: 10px;
 }
 
-.keep-filter input, select {
+.keep-filter input,
+select {
     /* width: 100%; */
     border: none;
     background-color: rgb(242, 242, 242);
@@ -60,6 +64,7 @@ h3 {
 .keep-filter input {
     width: 100%;
 }
+
 
 /* keep-app */
 
@@ -97,15 +102,19 @@ h3 {
     cursor: pointer;
 }
 
+
 /* .keep-edit .edit-remove-btn {
     position: absolute;
     bottom: 3px;
     right: 3px;
     cursor: pointer; */
 
+
 /* z-index: 2; */
 
+
 /* } */
+
 
 /* keep-add */
 
@@ -205,6 +214,7 @@ h3 {
     right: 3px;
 }
 
+
 /* keep-list */
 
 .keep-list .pinned {
@@ -226,11 +236,13 @@ h3 {
     gap: 10px;  */
 }
 
+
 /* .keep-list ul {
     list-style: none;
     margin: 0;
     padding: 0;
 } */
+
 
 /* notes */
 
@@ -377,6 +389,7 @@ h3 {
     z-index: 1
 }
 
+
 /* .colors-container.closed {
     background-color: rgb(34, 30, 30);
     display: grid;
@@ -408,11 +421,13 @@ h3 {
     content: "\f53f"
 }
 
+
 /* .keep-preview textarea:hover{
     box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.8);
     transition: all 0.4;
 
 } */
+
 
 /* note-img */
 
@@ -428,6 +443,7 @@ img {
 .note-item.video {
     padding: 30px 0 40px
 }
+
 
 /* note-todo */
 
@@ -451,9 +467,9 @@ img {
 .todo-done:before {
     cursor: pointer;
     font-family: awesome;
-    font-size:20px;
+    font-size: 20px;
     color: var(--icon-color);
-    content:"\f00c"
+    content: "\f00c"
 }
 
 .todo-done.done:before {
@@ -474,6 +490,7 @@ img {
     width: 100%;
 }
 
+
 /* keep-add-type */
 
 .keep-add-type {
@@ -484,10 +501,10 @@ img {
 }
 
 .keep-add-type button {
-    color: var(--icon-color);;
+    color: var(--icon-color);
+    ;
     padding: 0;
 }
-
 
 .keep-add-type .addTodo:before {
     font-family: awesome;
@@ -519,7 +536,6 @@ img {
     content: '\f030'
     /* f0ca */
 }
-
 
 .keep-add-type .addTxt:before {
     font-family: awesome;
@@ -586,6 +602,7 @@ img {
     margin-bottom: 4px;
 }
 
+
 /* add video */
 
 .add-video {
@@ -602,6 +619,7 @@ img {
     margin-bottom: 4px;
 }
 
+
 /* add-todo */
 
 .add-todo ul {
@@ -612,6 +630,7 @@ img {
     border-radius: 4px;
 }
 
+
 /* add-map */
 
 .map-container {
@@ -619,11 +638,13 @@ img {
     width: 100%;
 }
 
+
 /* add-all */
 
 .color-effect {
     transition: background-color 0.6s;
 }
+
 
 /* mail-app-container */
 
@@ -631,15 +652,18 @@ img {
     min-height: 95.9vh;
 }
 
+
 /* vue-animation */
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
     transition: opacity .4s;
 }
 
-.fade-enter, .fade-leave-to
+.fade-enter,
+.fade-leave-to
 /* .fade-leave-active below version 2.1.8 */
 
-    {
+{
     opacity: 0;
 }
