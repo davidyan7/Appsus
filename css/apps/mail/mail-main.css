@@ -389,6 +389,17 @@ h1 {
     .send-btn {
         margin-left: 0;
     }
+    .compose-container {
+        width: 120px;
+        justify-content: space-evenly;
+    }
+    .compose-btn {
+        margin-left: 0;
+        margin-right: 15px;
+    }
+    .plus-img {
+        margin-left: 20px;
+    }
     .basic-btn {
         margin: 6px;
         background-color: unset;
