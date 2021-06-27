@@ -178,7 +178,7 @@ body {
     right: 0;
     padding: 10px;
     background-color: rgb(206, 206, 206);
-    /* z-index: 3; */
+    z-index: 4;
 }
 
 @media (max-width: 650px) {
