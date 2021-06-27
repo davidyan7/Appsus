@@ -22,7 +22,7 @@ export default {
                     <mail-filter class="mail-filter " @notFilter="notFilter" @titleSort="titleSort" @dateSort="dateSort" @filter="setFilter" ></mail-filter>
                 </div>
                 </header>
-                <div class="mail-app-body main-layout ">
+                <div class="mail-app-body ">
                         <nav  v-if="mails" class="mail-nav-bar">
                             <div class="compose-container">
                                 <img class="plus-img" src="img/gmail-plus.png" alt="">
@@ -73,7 +73,7 @@ export default {
                 txt: 'Mail send success',
                 type: 'success'
             };
-            eventBus.$emit('show-msg', msg, this.book);
+            eventBus.$emit('show-msg', msg);
             this.selectedMail = null
             this.filterStar = null
             this.isInbox = true

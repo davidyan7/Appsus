@@ -52,6 +52,7 @@ body {
 
 /* HOME-PAGE */
 
+
 /* .home-page img {
     height: 100vh;
     background-image: url('../../img/bg/bg-img5.jpg');
@@ -176,7 +177,7 @@ body {
     top: 0;
     right: 0;
     padding: 10px;
-    background-color: #fff;
+    background-color: rgb(206, 206, 206);
 }
 
 @media (max-width: 650px) {
@@ -186,21 +187,17 @@ body {
         align-items: center;
         justify-content: center;
     }
-    
     .main-nav-bar h1 {
-
         font-size: 2rem;
         /* text-align: center;
         width: 100%;
         margin: 0; */
     }
-    
     .main-nav-img {
         width: 100px;
         margin: 20px;
         object-fit: contain;
     }
-    
     .home-page .nav-container {
         top: 38%;
     }
