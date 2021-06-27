@@ -400,6 +400,9 @@ h1 {
     .plus-img {
         margin-left: 20px;
     }
+    .filtering {
+        margin-right: 10px;
+    }
     .basic-btn {
         margin: 6px;
         background-color: unset;

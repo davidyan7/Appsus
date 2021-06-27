@@ -17,7 +17,7 @@ export default {
                 <h1>Mail</h1>
                 <img class="header-logo" src="img/gmail-icon.png" alt="">
                 </div>
-                <div class="filtering main-layout">
+                <div class="filtering">
                     <mail-search @search="setSearch"></mail-search>
                     <mail-filter class="mail-filter " @notFilter="notFilter" @titleSort="titleSort" @dateSort="dateSort" @filter="setFilter" ></mail-filter>
                 </div>
