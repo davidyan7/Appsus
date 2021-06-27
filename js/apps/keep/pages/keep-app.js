@@ -65,7 +65,7 @@ export default {
                 .then(() => {
                     this.loadNotes()
                     const msg = {
-                        txt: 'Note Add',
+                        txt: 'Note Added',
                         type: 'success'
                     };
                     eventBus.$emit('show-msg', msg);
@@ -93,7 +93,7 @@ export default {
                 .then(() => {
                     this.loadNotes()
                     const msg = {
-                        txt: 'Note Remove',
+                        txt: 'Note Removed',
                         type: 'success'
                     };
                     eventBus.$emit('show-msg', msg);
