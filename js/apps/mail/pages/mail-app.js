@@ -30,6 +30,7 @@ export default {
                             </div>
                     <button @click="setInbox" class="basic-btn inbox-btn"><h3>Inbox</h3> ({{unReadMails}})</button>
                     <button @click="filterstarred" class="basic-btn starred-btn"><h3>Starred</h3>({{starsMails}})</button>
+                    <button @click="filterSent" class="basic-btn sent-btn"><h3>Sent</h3></button>
                 </nav>
                 <div v-if="isInbox">
                     <mail-list v-if="mails" @showDetails="showDetails" @replayMail="replayMail" @mailStarred="mailStarred" @readChosen="readChosen" @readMail="readMail" :mails="mailsToShow" @remove="removeMail" />
@@ -48,6 +49,7 @@ export default {
             filterStar: null,
             isInbox: true,
             isCompose: false,
+            isSent: null,
             selectedMail: null,
             mailToCompose: null,
 
@@ -76,6 +78,7 @@ export default {
             this.filterStar = null
             this.isInbox = true
             this.isCompose = false
+            this.isSent = false
         },
 
         removeMail(mailId) {
@@ -103,11 +106,13 @@ export default {
             this.filterStar = false
             this.mailToCompose = mail
             this.selectedMail = null
+            this.isSent = false
         },
         showDetails(mail) {
             this.selectedMail = mail
             this.isInbox = false
             this.isCompose = false
+            this.isSent = false
         },
         readChosen(mail) {
             mailService.readChosen(mail)
@@ -125,7 +130,16 @@ export default {
             this.filterBy = filterBy;
         },
         filterstarred() {
+            this.isSent = false
             this.filterStar = true
+            this.mailToCompose = null
+            this.isInbox = true
+            this.isCompose = false
+            this.selectedMail = null
+        },
+        filterSent() {
+            this.filterStar = false
+            this.isSent = true
             this.mailToCompose = null
             this.isInbox = true
             this.isCompose = false
@@ -133,6 +147,7 @@ export default {
         },
         setCompose() {
             this.mailToCompose = null
+            this.isSent = false
             this.isInbox = false
             this.isCompose = true
             this.filterStar = false
@@ -140,6 +155,7 @@ export default {
 
         },
         setInbox() {
+            this.isSent = false
             this.filterStar = null
             this.mailToCompose = null
             this.isInbox = true
@@ -163,9 +179,13 @@ export default {
     },
     computed: {
         mailsToShow() {
-            if (!this.searchBy && !this.filterBy && !this.filterStar) return this.mails
+            if (!this.searchBy && !this.filterBy && !this.filterStar & !this.isSent) return this.mails
             if (this.filterStar) {
                 const booksToShow = this.mails.filter(mail => mail.isStarred)
+                return booksToShow
+            }
+            if (this.isSent) {
+                const booksToShow = this.mails.filter(mail => mail.isSent)
                 return booksToShow
             }
             if (this.searchBy) {
@@ -190,6 +210,7 @@ export default {
             }
 
         },
+
         unReadMails() {
             var sum = 0
             this.mails.forEach(mail => {

@@ -27,6 +27,7 @@ export default {
                 sentAt: Date.now(),
                 isRead: false,
                 isStarred: false,
+                isSent: true
             }
 
         }
