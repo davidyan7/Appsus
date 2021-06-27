@@ -62,7 +62,14 @@ export default {
             if (!this.currNote) return
             console.log('adding note...');
             keepService.addNewNote(this.currNote)
-                .then(() => this.loadNotes())
+                .then(() => {
+                    const msg = {
+                        txt: 'Note Added',
+                        type: 'success'
+                    };
+                    eventBus.$emit('show-msg', msg);
+                    this.loadNotes()
+                })
                 .catch(err => console.log('error', err))
         },
         editNote(note) {
@@ -83,7 +90,14 @@ export default {
             console.log('deleting...');
             this.clickedNote = null
             keepService.removeNote(note.id)
-                .then(() => this.loadNotes())
+                .then(() => {
+                    const msg = {
+                        txt: 'Note Removed',
+                        type: 'success'
+                    };
+                    eventBus.$emit('show-msg', msg);
+                    this.loadNotes()
+                })
         },
         pinned(note) {
             note.isPinned = !note.isPinned
