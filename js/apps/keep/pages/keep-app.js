@@ -33,7 +33,7 @@ export default {
     `,
     created() {
         this.loadNotes()
-            // eventBus.$on('pinned', this.pinned())
+        // eventBus.$on('pinned', this.pinned())
     },
 
     data() {
@@ -61,7 +61,8 @@ export default {
         addNote() {
             if (!this.currNote) return
             console.log('adding note...');
-            keepService.addNewNote(this.currNote)
+            var note =JSON.parse(JSON.stringify(this.currNote));
+            keepService.addNewNote(note)
                 .then(() => {
                     const msg = {
                         txt: 'Note Added',
@@ -124,33 +125,32 @@ export default {
     computed: {
         notesToShow() {
             if (!this.filterBy) return this.notes
-                // var searchMin = this.filterBy.fromPrice
-                // var searchMax = this.filterBy.toPrice
+            // var searchMin = this.filterBy.fromPrice
+            // var searchMax = this.filterBy.toPrice
             const searchStr = this.filterBy.title.toLowerCase();
             // if (searchMin === '') searchMin = 0
             // if (searchMax === '') searchMax = Infinity
             // var notesToShow;
-            if (this.filterBy.type) {
-                if (this.filterBy.type === 'all') return this.notes
-                var notesToShow = this.notes.filter(note => note.type === this.filterBy.type)
-                return notesToShow
-            }
+            // if (this.filterBy.type) {
+            //     if (this.filterBy.type === 'all') return this.notes
+            //     var notesToShow = this.notes.filter(note => note.type === this.filterBy.type)
+            //     return notesToShow
+            // }
 
 
 
-            if (this.filterBy.title) {
-                var notesToShow = this.notes.filter(note => {
-                    if (note.info.txt && note.info.txt !== '') {
-                        return note.info.txt.toLowerCase().includes(searchStr)
-                    }
-                    if (note.info.title && note.info.title !== '') {
-                        return note.info.title.toLowerCase().includes(searchStr)
-                    }
-                    if (note.info.label && note.info.label !== '') {
-                        return note.info.label.toLowerCase().includes(searchStr)
-                    }
-                })
-            }
+            // if (this.filterBy.title) {
+            // if(!note.info.txt && !note.info.title) return this.notes
+            var notesToShow = this.notes.filter(note => {
+                if (!note.info.txt) note.info.txt = ''
+                if (!note.info.title) note.info.title = ''
+                if (!note.info.label) note.info.label = ''
+                // if (note.info.txt) {
+                return (note.info.txt.toLowerCase().includes(searchStr) ||
+                    note.info.title.toLowerCase().includes(searchStr) ||
+                    note.info.label.toLowerCase().includes(searchStr))
+            })
+
             return notesToShow
         },
         isOpen() {

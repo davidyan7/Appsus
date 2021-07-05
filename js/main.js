@@ -10,10 +10,10 @@ const options = {
     router,
     template: `
         <section class='main-container'>
-        <user-msg />
-        <app-header/>
-        <router-view/>
-        <app-footer/>
+            <user-msg />
+            <app-header/>
+            <router-view/>
+            <app-footer/>
         </section>
     `,
     components: {
